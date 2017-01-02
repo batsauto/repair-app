@@ -1,0 +1,25 @@
+{
+  "name": "repair-app",
+  "version": "1.0.0",
+  "main": "(server.js)",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/batsauto/repair-app.git"
+  },
+  "author": "batsauto <cfbarrow@gmail.com>",
+  "license": "MIT",
+  "description": "This is a Repair App that my family could use for their landscape business",
+  "bugs": {
+    "url": "https://github.com/batsauto/repair-app/issues"
+  },
+  "homepage": "https://github.com/batsauto/repair-app#readme",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "angular": "^1.6.1",
+    "angular-route": "^1.6.1",
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0"
+  }
+}
