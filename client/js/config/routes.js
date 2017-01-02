@@ -1,4 +1,4 @@
-myAppModule.config(["$routeProvider", "$routeLocation", function($routeProvider, $locationProvider) {
+myAppModule.config(["$routeProvider", "$locationProvider", function($routeProvider, $locationProvider) {
     $routeProvider
         .when("/repairs", {
             templateUrl: "static/partials/repairs.html",
