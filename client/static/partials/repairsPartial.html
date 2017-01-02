@@ -1,6 +1,11 @@
 <div>
     <div>
         <h3>New Repair Form</h3>
+        <input type="text" name="name" placeholder="Customer Name" ng-model="newRepair.name">
+        <input type="text" name="address" placeholder="Customer Address" ng-model="newRepair.address">
+        <input type="text" name="date" placeholder="Repair Date" ng-model="newRepair.date">
+        <input type="text" name="description" placeholder="Customer description" ng-model="newRepair.description">
+        <button type="submit" ng-click="addRepair()">Add Repair</button>
     </div>
     <div>
         <h3>Repairs</h3>
@@ -11,7 +16,16 @@
                 <th>Repair Date</th>
                 <th>Description</th>
                 <th>Repair Comments</th>
+                <th>Actions</th>
             </thead>
+            <tr ng-repeat="repair in repairs">
+                <td>{{repair.name}}</td>
+                <td>{{repair.address}}</td>
+                <td>{{repair.date}}</td>
+                <td>{{repair.description}}</td>
+                <td>{{repair.comments}}</td>
+                <td><button type="button" ng-click="removeRepair()"> Remove Repair</button></td>
+            </tr>
         </table>
     </div>
 </div>

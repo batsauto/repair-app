@@ -2,11 +2,11 @@ myAppModule.controller("repairsController", function($scope, repairFactory) {
     $scope.repairs = [];
 
     repairFactory.getRepairs(function(repairs) {
-        $scope.players = players;
+        $scope.repairs = repairs;
     });
 
     $scope.addRepair = function() {
-        repairFactory.addplayer($scope.newRepair);
+        repairFactory.addRepair($scope.newRepair);
         $scope.newRepair = {};
     };
 
