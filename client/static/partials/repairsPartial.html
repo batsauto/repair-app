@@ -10,7 +10,7 @@
     </div>
     <div>
         <h3>Repairs</h3>
-        <input placeholder="Search For a Customer" ng-model="searchText"></label>
+        <input type="text" placeholder="Search For a Customer" ng-model="searchText"></label>
         <table class="md-padding">
             <thead>
                 <th>Name</th>
@@ -20,7 +20,7 @@
                 <th>Repair Comments</th>
                 <th>Actions</th>
             </thead>
-            <tr ng-repeat="repair in repairs | filter:searchText">
+            <tr ng-repeat="repair in repairs | fuzzy: searchText">
                 <td>{{repair.name}}</td>
                 <td>{{repair.address}}</td>
                 <td>{{repair.date}}</td>
@@ -31,7 +31,7 @@
         </table>
     </div>
     <div layout="column">
-          <md-card flex ng-repeat="repair in repairs | filter:searchText">
+          <md-card flex ng-repeat="repair in repairs | fuzzy: searchText">
             <md-card-title>
               <md-card-title-text>
                 <span class="md-headline">{{repair.name}}</span>

@@ -1,4 +1,4 @@
-var myAppModule = angular.module("myApp", ["ngRoute", "vsGoogleAutocomplete", "ngMaterial"]);
+var myAppModule = angular.module("myApp", ["ngRoute", "vsGoogleAutocomplete", "ngMaterial", "angular.filter"]);
 
 myAppModule.config(function($mdThemingProvider) {
   $mdThemingProvider.theme('default')
