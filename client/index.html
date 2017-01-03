@@ -1,26 +1,42 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="myApp">
-    <head>
-        <meta charset="utf-8">
-        <title> Repair App for Barrows Landscaping</title>
-        <link rel="stylesheet" href="./static/CSS/style.css">
-        <script src = "angular/angular.js"></script>
-        <script src = "angular-route/angular-route.js"></script>
-        <script src="app.js" charset="utf-8"></script>
-        <script src="./js/controllers/repairsController.js" charset="utf-8"></script>
-        <script src="./js/factories/repairFactory.js" charset="utf-8"></script>
-        <script src="./js/config/routes.js" charset="utf-8"></script>
-        <!-- Google Map autocomplete Address API -->
-        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAqR7uQjj0wVGr4-yXmJr7w_N_yRLwhmVg&libraries=places"></script>
-        <!-- vsGoogleAutocomplete -->
-        <script src="./library/vs-google-autocomplete.js"></script>
+<head>
+    <meta charset="utf-8">
+    <title> Repair App for Barrows Landscaping</title>
+    <link rel="stylesheet" href="./static/CSS/style.css">
+    <!-- material css library -->
+    <link rel="stylesheet" href="angular-material/angular-material.css">
+    <!-- Angular Library -->
+    <script src="angular/angular.js"></script>
+    <script src="angular-route/angular-route.js"></script>
+    <!-- Angular Material requires Angular.js Libraries -->
+    <script src="angular-material/angular-material.js" charset="utf-8"></script>
+    <script src="angular-animate/angular-animate.js" charset="utf-8"></script>
+    <script src="angular-aria/angular-aria.js" charset="utf-8"></script>
+    <script src="angular-messages/angular-messages.js" charset="utf-8"></script>
+    <!-- scirpts for angularApp -->
+    <script src="app.js" charset="utf-8"></script>
+    <script src="./js/controllers/repairsController.js" charset="utf-8"></script>
+    <script src="./js/factories/repairFactory.js" charset="utf-8"></script>
+    <script src="./js/config/routes.js" charset="utf-8"></script>
+    <!-- Google Map autocomplete Address API -->
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAqR7uQjj0wVGr4-yXmJr7w_N_yRLwhmVg&libraries=places"></script>
+    <!-- vsGoogleAutocomplete -->
+    <script src="./library/vs-google-autocomplete.js"></script>
 
-    </head>
-    <body>
-        <a href="/repairs">Repairs</a>
-        <a href="/field">Field</a>
+</head>
+<body>
+
+        <md-content class="md-padding">
+            <!-- Navbar -->
+            <md-nav-bar class="md-primary" md-selected-nav-item="currentNavItem" nav-bar-aria-label="navigation links">
+                <md-nav-item md-nav-href="/repairs" name="repairs">Repairs</md-nav-item>
+                <md-nav-item md-nav-href="/field" name="field">Field</md-nav-item>
+            </md-nav-bar>
+            <!-- Main Content -->
+            <div ng-view=""></div>
+        </md-content>
 
 
-        <div ng-view=""></div>
-    </body>
+</body>
 </html>

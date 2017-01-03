@@ -10,7 +10,8 @@
     </div>
     <div>
         <h3>Repairs</h3>
-        <table>
+        <input placeholder="Search For a Customer" ng-model="searchText"></label>
+        <table class="md-padding">
             <thead>
                 <th>Name</th>
                 <th>Address</th>
@@ -19,7 +20,7 @@
                 <th>Repair Comments</th>
                 <th>Actions</th>
             </thead>
-            <tr ng-repeat="repair in repairs">
+            <tr ng-repeat="repair in repairs | filter:searchText">
                 <td>{{repair.name}}</td>
                 <td>{{repair.address}}</td>
                 <td>{{repair.date}}</td>
@@ -29,6 +30,34 @@
             </tr>
         </table>
     </div>
+    <div layout="column">
+          <md-card flex ng-repeat="repair in repairs | filter:searchText">
+            <md-card-title>
+              <md-card-title-text>
+                <span class="md-headline">{{repair.name}}</span>
+              </md-card-title-text>
+            </md-card-title>
+            <md-card-content>
+              <p>
+                  {{repair.address}}
+              </p>
+              <p>
+                  {{repair.date}}
+              </p>
+              <p>
+                  {{repair.description}}
+              </p>
+              <p>
+                  {{repair.comments}}
+              </p>
+            </md-card-content>
+            <md-card-actions layout="row" layout-align="end center">
+              <md-button ng-click="removeRepair()">Delete</md-button>
+            </md-card-actions>
+          </md-card>
+      </div>
+
+
     <div>
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAqR7uQjj0wVGr4-yXmJr7w_N_yRLwhmVg&libraries=places&callback=initAutocomplete" async defer></script>
     </div>
