@@ -1,66 +1,117 @@
 <div>
+  <div class="md-padding">
+    <h3>New Repair Form</h3>
+    <form name="repairForm">
 
-    <div>
-        <h3>New Repair Form</h3>
-        <input type="text" name="name" placeholder="Customer Name" ng-model="newRepair.name">
-        <input id="autocomplete" vs-google-autocomplete="{ types: ['address'] }" type="text" name="address" placeholder="Customer Address" ng-model="newRepair.address">
-        <!-- <input type="date" placeholder="Repair Date" ng-model="newRepair.date">  -->
-        <md-datepicker md-hide-icons="calendar" md-placeholder="Enter date" ng-model="newRepair.date"></md-datepicker>
-        <input type="textarea" name="description" placeholder="Customer description" ng-model="newRepair.description">
-        <button type="submit" ng-click="addRepair()">Add Repair</button>
-    </div>
-    <div>
-        <h3>Repairs</h3>
-        <input type="text" placeholder="Search For a Customer" ng-model="searchText">
-        <table class="md-padding">
-            <thead>
-                <th>Name</th>
-                <th>Address</th>
-                <th>Repair Date</th>
-                <th>Description</th>
-                <th>Repair Comments</th>
-                <th>Actions</th>
-            </thead>
-            <tr ng-repeat="repair in repairs | fuzzy: searchText">
-                <td>{{repair.name}}</td>
-                <td>{{repair.address}}</td>
-                <td>{{repair.date}}</td>
-                <td>{{repair.description}}</td>
-                <td>{{repair.comments}}</td>
-                <td><button type="button" ng-click="removeRepair()">Remove Repair</button></td>
-            </tr>
-        </table>
-    </div>
-    <div layout="column">
-          <md-card flex ng-repeat="repair in repairs | fuzzy: searchText">
-            <md-card-title>
-              <md-card-title-text>
-                <span class="md-headline">{{repair.name}}</span>
-              </md-card-title-text>
-            </md-card-title>
-            <md-card-content>
-              <p>
-                  {{repair.address}}
-              </p>
-              <p>
-                  {{repair.date}}
-              </p>
-              <p>
-                  {{repair.description}}
-              </p>
-              <p>
-                  {{repair.comments}}
-              </p>
-            </md-card-content>
-            <md-card-actions layout="row" layout-align="end center">
-              <md-button ng-click="removeRepair()">Delete</md-button>
-            </md-card-actions>
-          </md-card>
+      <div layout-gt-xs="row">
+        <md-input-container class="md-block" flex-gt-xs>
+          <label>Company</label>
+          <input ng-model="newRepair.company">
+        </md-input-container>
+
+        <md-input-container>
+          <label>Enter date</label>
+          <md-datepicker ng-model="newRepair.date"></md-datepicker>
+        </md-input-container>
       </div>
 
+      <div layout-gt-sm="row">
+        <md-input-container class="md-block" flex-gt-sm>
+          <label>First name</label>
+          <input ng-model="newRepair.firstName">
+        </md-input-container>
 
-    <div>
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAqR7uQjj0wVGr4-yXmJr7w_N_yRLwhmVg&libraries=places&callback=initAutocomplete" async defer></script>
-    </div>
+        <md-input-container class="md-block" flex-gt-sm>
+          <label>Last name</label>
+          <input ng-model="newRepair.lastName">
+        </md-input-container>
+      </div>
+
+      <md-input-container class="md-block">
+        <label>Customer Address</label>
+        <input vs-google-autocomplete="{ types: ['address'] }" placeholder="" ng-model="newRepair.address">
+      </md-input-container>
+
+
+      <md-input-container class="md-block">
+        <label>Customer Description</label>
+        <textarea ng-model="newRepair.description" md-maxlength="200" rows="5" md-select-on-focus></textarea>
+      </md-input-container>
+
+      <md-button ng-click="addRepair()">Add Repair</md-button>
+
+    </form>
+  </div>
+
+  <div>
+    <h3>Repairs</h3>
+    <md-input-container class="md-block">
+      <label>Search for Customer</label>
+      <input ng-model="searchText">
+    </md-input-container>
+    <md-table-container class="md-padding">
+      <table md-table>
+        <thead md-head>
+          <tr md-row>
+            <th md-column><span>First Name</span></th>
+            <th md-column><span>Last Name</span></th>
+            <th md-column><span>Company</span></th>
+            <th md-column><span>Address</span></th>
+            <th md-column><span>Repair Date</span></th>
+            <th md-column><span>Description</span></th>
+            <th md-column><span>Repair Comments</span></th>
+            <th md-column><span>Actions</span></th>
+          </tr>
+        </thead>
+        <tbody md-body>
+          <tr md-row ng-repeat="repair in repairs | fuzzy: searchText">
+            <td md-cell>{{repair.firstName}}</td>
+            <td md-cell>{{repair.lastName}}</td>
+            <td md-cell>{{repair.company}}</td>
+            <td md-cell>{{repair.address}}</td>
+            <td md-cell>{{repair.date}}</td>
+            <td md-cell>{{repair.description}}</td>
+            <td md-cell>{{repair.comments}}</td>
+            <td md-button ng-click="removeRepair()">Delete</td>
+          </tr>
+        </tbody>
+      </table>
+    </md-table-container>
+
+  </div>
+  <div layout="column">
+    <md-card flex ng-repeat="repair in repairs | fuzzy: searchText">
+      <md-card-title>
+        <md-card-title-text>
+          <span class="md-headline">{{repair.firstName}} {{repair.lastName}}</span>
+        </md-card-title-text>
+      </md-card-title>
+      <md-card-content>
+        <p>
+          {{repair.company}}
+        </p>
+        <p>
+          {{repair.address}}
+        </p>
+        <p>
+          {{repair.date}}
+        </p>
+        <p>
+          {{repair.description}}
+        </p>
+        <p>
+          {{repair.comments}}
+        </p>
+      </md-card-content>
+      <md-card-actions layout="row" layout-align="end center">
+        <md-button ng-click="removeRepair()">Delete</md-button>
+      </md-card-actions>
+    </md-card>
+  </div>
+
+
+  <div>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA2ij1AVJozmyNYh8IG9tZzTNPD8NqhZZc&libraries=places&callback=initAutocomplete" async defer></script>
+  </div>
 
 </div>
