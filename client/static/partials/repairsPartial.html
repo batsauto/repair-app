@@ -4,13 +4,14 @@
         <h3>New Repair Form</h3>
         <input type="text" name="name" placeholder="Customer Name" ng-model="newRepair.name">
         <input id="autocomplete" vs-google-autocomplete="{ types: ['address'] }" type="text" name="address" placeholder="Customer Address" ng-model="newRepair.address">
-        <input type="text" name="date" placeholder="Repair Date" ng-model="newRepair.date">
+        <!-- <input type="date" placeholder="Repair Date" ng-model="newRepair.date">  -->
+        <md-datepicker md-hide-icons="calendar" md-placeholder="Enter date" ng-model="newRepair.date"></md-datepicker>
         <input type="textarea" name="description" placeholder="Customer description" ng-model="newRepair.description">
         <button type="submit" ng-click="addRepair()">Add Repair</button>
     </div>
     <div>
         <h3>Repairs</h3>
-        <input type="text" placeholder="Search For a Customer" ng-model="searchText"></label>
+        <input type="text" placeholder="Search For a Customer" ng-model="searchText">
         <table class="md-padding">
             <thead>
                 <th>Name</th>
