@@ -45,6 +45,7 @@
 
   <div>
     <h3>Repairs</h3>
+    <!-- TODO: find a way to toggle hiding the table -->
     <md-input-container class="md-block">
       <label>Search for Customer</label>
       <input ng-model="searchText">
@@ -80,6 +81,7 @@
 
   </div>
   <div layout="column">
+    <!-- TODO: find a way to toggle hide the cards -->
     <md-card flex ng-repeat="repair in repairs | fuzzy: searchText">
       <md-card-title>
         <md-card-title-text>
