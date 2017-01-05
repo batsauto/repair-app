@@ -35,10 +35,10 @@
 
       <md-input-container class="md-block">
         <label>Customer Description</label>
-        <textarea ng-model="newRepair.description" md-maxlength="200" rows="5" md-select-on-focus></textarea>
+        <textarea ng-model="newRepair.description" md-maxlength="200" rows="4" md-select-on-focus></textarea>
       </md-input-container>
 
-      <md-button ng-click="addRepair()">Add Repair</md-button>
+      <md-button class="md-raised" ng-click="addRepair()">Add Repair</md-button>
 
     </form>
   </div>
@@ -73,7 +73,7 @@
             <td md-cell>{{repair.date}}</td>
             <td md-cell>{{repair.description}}</td>
             <td md-cell>{{repair.comments}}</td>
-            <td md-button ng-click="removeRepair()">Delete</td>
+            <td md-button class="md-raised" ng-click="removeRepair()">Delete</td>
           </tr>
         </tbody>
       </table>
@@ -106,7 +106,7 @@
         </p>
       </md-card-content>
       <md-card-actions layout="row" layout-align="end center">
-        <md-button ng-click="removeRepair()">Delete</md-button>
+        <md-button class="md-raised" ng-click="removeRepair()">Delete</md-button>
       </md-card-actions>
     </md-card>
   </div>
