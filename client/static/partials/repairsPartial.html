@@ -65,7 +65,7 @@
           </tr>
         </thead>
         <tbody md-body>
-          <tr md-row ng-repeat="repair in repairs | fuzzy: searchText">
+          <tr md-row ng-repeat="repair in repairs track by $index | fuzzy: searchText">
             <td md-cell>{{repair.firstName}}</td>
             <td md-cell>{{repair.lastName}}</td>
             <td md-cell>{{repair.company}}</td>
@@ -80,9 +80,14 @@
     </md-table-container>
 
   </div>
-  <div layout="column">
+
+  <md-checkbox ng-model="checked" aria-label="Toggle ngHide">
+  Hide Tile View
+ </md-checkbox>
+
+  <div class="check-element animate-show-hide" ng-hide="checked" layout="column">
     <!-- TODO: find a way to toggle hide the cards -->
-    <md-card flex ng-repeat="repair in repairs | fuzzy: searchText">
+    <md-card flex ng-repeat="repair in repairs track by $index | fuzzy: searchText">
       <md-card-title>
         <md-card-title-text>
           <span class="md-headline">{{repair.firstName}} {{repair.lastName}}</span>

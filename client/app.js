@@ -1,4 +1,4 @@
-var myAppModule = angular.module("myApp", ["ngRoute", "vsGoogleAutocomplete", "ngMaterial", "angular.filter", "md.data.table"]);
+var myAppModule = angular.module("myApp", ["ngRoute", "vsGoogleAutocomplete", "ngMaterial", "angular.filter", "md.data.table", "ngAnimate"]);
 
 // This config is so the datepicker directive can work with this version of anuglar
 myAppModule.config(function($compileProvider) {
