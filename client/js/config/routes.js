@@ -5,7 +5,7 @@ myAppModule.config(["$routeProvider", "$locationProvider", function($routeProvid
             controller: "repairsController"
         })
         .when("/field", {
-            templateUrl: "./static/partials/field.html",
+            templateUrl: "./static/partials/fieldPartial.html",
             controller: "fieldController"
         });
         $locationProvider.html5Mode({

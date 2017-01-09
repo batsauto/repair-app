@@ -8,6 +8,7 @@ myAppModule.factory("repairFactory", function() {
     };
 
     factory.addRepair = function (newRepair) {
+        newRepair.date = newRepair.date.toLocaleDateString();
         repairs.push(newRepair);
     };
 

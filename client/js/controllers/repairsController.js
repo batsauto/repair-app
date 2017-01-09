@@ -7,7 +7,6 @@ myAppModule.controller("repairsController", function($scope, repairFactory) {
 
     $scope.addRepair = function() {
         repairFactory.addRepair($scope.newRepair);
-        $scope.newRepair.date = $scope.newRepair.date.toLocaleDateString();
         $scope.newRepair = {};
     };
 
