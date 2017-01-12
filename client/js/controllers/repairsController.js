@@ -10,6 +10,10 @@ myAppModule.controller("repairsController", function($scope, repairFactory) {
         $scope.newRepair = {};
     };
 
+    $scope.editRepair = function() {
+        repairFactory.editRepair();
+    };
+
     $scope.removeRepair = function($index) {
         repairFactory.removeRepair($index);
     };

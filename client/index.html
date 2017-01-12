@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="myApp">
+
 <head>
     <meta charset="utf-8">
     <title> Repair App for Barrows Landscaping</title>
@@ -34,18 +35,20 @@
     <script src="./library/vs-google-autocomplete.js"></script>
 
 </head>
+
 <body>
 
-        <md-content class="md-padding">
-            <!-- Navbar -->
-            <md-nav-bar class="md-primary" md-selected-nav-item="currentNavItem" nav-bar-aria-label="navigation links">
-                <md-nav-item md-nav-href="/repairs" name="repairs">Repairs</md-nav-item>
-                <md-nav-item md-nav-href="/field" name="field">Field</md-nav-item>
-            </md-nav-bar>
-            <!-- Main Content -->
-            <div ng-view=""></div>
-        </md-content>
+    <md-content class="md-padding">
+        <!-- Navbar -->
+        <md-nav-bar class="md-primary" md-selected-nav-item="currentNavItem" nav-bar-aria-label="navigation links">
+            <md-nav-item md-nav-href="/repairs" name="repairs">Repairs</md-nav-item>
+            <md-nav-item md-nav-href="/field" name="field">Field</md-nav-item>
+        </md-nav-bar>
+        <!-- Main Content -->
+        <div ng-view=""></div>
+    </md-content>
 
 
 </body>
+
 </html>
