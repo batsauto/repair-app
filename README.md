@@ -5,7 +5,7 @@ This repo uses yarn which is a new package manager that works in concert with np
 
 often times i deactivate my google api key so that there isnt any unwanted use of it since it is in a public space. if you find this to be the case, you can simply replace my key with one of your own.
 
-#### H4 To run this application on your own machine (osX)
+#### To run this application on your own machine (osX)
 1. clone the repo do you local machine
 2. install the dependencies via npm
   - `npm install`
