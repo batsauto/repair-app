@@ -154,7 +154,7 @@
 
             <md-card-actions ng-hide="repair.isEdited" layout="row" layout-align="end center">
                 <md-button class="md-raised" ng-click="repair.isEdited = true">Update</md-button>
-                <md-button class="md-raised" ng-click="removeRepair()">Delete</md-button>
+                <md-button class="md-raised" ng-click="removeRepair($index)">Delete</md-button>
             </md-card-actions>
         </md-card>
 
