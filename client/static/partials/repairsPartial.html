@@ -35,7 +35,7 @@
 
             <md-input-container class="md-block">
                 <label>Customer Description</label>
-                <textarea ng-model="newRepair.description" md-maxlength="200" rows="4" md-select-on-focus></textarea>
+                <textarea ng-model="newRepair.description" md-maxlength="400" rows="4" md-select-on-focus></textarea>
             </md-input-container>
 
             <md-button class="md-raised" ng-click="addRepair()">Add Repair</md-button>
@@ -47,11 +47,11 @@
         <h3>Repairs</h3>
         <md-input-container class="md-block">
             <label>Search for Customer</label>
-            <input type="text" ng-model="searchText">
+            <input type="text" ng-model="searchCustomer">
         </md-input-container>
     </div>
 
-    <md-card flex ng-repeat="repair in repairs | fuzzy: searchText track by $index">
+    <md-card flex ng-repeat="repair in repairs | fuzzy: searchCustomer track by $index">
         <md-card-title>
             <md-card-title-text>
                 <span class="md-headline">{{repair.firstName}} {{repair.lastName}}</span>
@@ -67,12 +67,14 @@
                     {{repair.address}}
                 </p>
                 <p>
-                    {{repair.date}}
+                    {{repair.date | date:'MM/dd/yyyy'}}
                 </p>
                 <p>
+                  <h5>Description:</h5>
                     {{repair.description}}
                 </p>
                 <p>
+                    <h5>Comments:</h5>
                     {{repair.comments}}
                 </p>
 
@@ -108,12 +110,15 @@
                     <input vs-google-autocomplete="{ types: ['address'] }" placeholder="" ng-model="repair.address">
                 </md-input-container>
 
-
                 <md-input-container class="md-block">
                     <label>Customer Description</label>
                     <textarea ng-model="repair.description" md-maxlength="200" rows="4" md-select-on-focus></textarea>
                 </md-input-container>
 
+                <md-input-container class="md-block">
+                    <label>Repair Comments</label>
+                    <textarea ng-model="repair.comments" md-maxlength="200" rows="4" md-select-on-focus></textarea>
+                </md-input-container>
 
                 <md-button class="md-raised" ng-click="repair.isEdited = false">Update Repair</md-button>
             </div>

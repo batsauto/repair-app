@@ -5,12 +5,15 @@ myAppModule.controller("fieldController", function($scope, repairFactory) {
       $scope.repairs = repairs;
     })
 
-    // $scope.updateRepair = function($scope.newComment) {
-    //   repairFactory.repair.comments = $scope.newComment;
-    // }
+    repairFactory.getParts(function(parts) {
+      $scope.parts = parts;
+    })
+
+    $scope.editRepair= function() {
+      repairFactory.editRepair();
+    };
 
     $scope.removeRepair = function($index) {
       repairFactory.removeRepair($index);
-    }
-
+    };
 });

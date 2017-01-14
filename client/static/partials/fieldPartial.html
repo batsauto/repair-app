@@ -1,43 +1,107 @@
 <div md-content>
 
-  <md-input-container class="md-block">
-    <label>Repair Comments</label>
-    <textarea ng-model="newComment" md-maxlength="200" rows="4" md-select-on-focus></textarea>
-  </md-input-container>
+    <md-input-container class="md-block">
+        <label>Search for Customer</label>
+        <input ng-model="searchCustomer">
+    </md-input-container>
 
-  <md-button class="md-raised" ng-click="updateRepair()">Add Repair</md-button>
+    <md-card flex ng-repeat="repair in repairs | fuzzy: searchCustomer track by $index">
+        <md-card-title>
+            <md-card-title-text>
+                <span class="md-headline">{{repair.firstName}} {{repair.lastName}}</span>
+            </md-card-title-text>
+        </md-card-title>
+        <md-card-content>
 
-  <md-input-container class="md-block">
-    <label>Search for Customer</label>
-    <input ng-model="searchText">
-  </md-input-container>
-  <md-table-container class="md-padding">
-    <table md-table>
-      <thead md-head>
-        <tr md-row>
-          <th md-column><span>First Name</span></th>
-          <th md-column><span>Last Name</span></th>
-          <th md-column><span>Company</span></th>
-          <th md-column><span>Address</span></th>
-          <th md-column><span>Repair Date</span></th>
-          <th md-column><span>Description</span></th>
-          <th md-column><span>Repair Comments</span></th>
-          <th md-column><span>Actions</span></th>
-        </tr>
-      </thead>
-      <tbody md-body>
-        <tr md-row ng-repeat="repair in repairs track by $index | fuzzy: searchText">
-          <td md-cell>{{repair.firstName}}</td>
-          <td md-cell>{{repair.lastName}}</td>
-          <td md-cell>{{repair.company}}</td>
-          <td md-cell>{{repair.address}}</td>
-          <td md-cell>{{repair.date}}</td>
-          <td md-cell>{{repair.description}}</td>
-          <td md-cell>{{repair.comments}}</td>
-          <td md-button class="md-raised" ng-click="removeRepair()">Delete</td>
-        </tr>
-      </tbody>
-    </table>
-  </md-table-container>
+            <div ng-hide="repair.isEdited">
+                <p>
+                    {{repair.company}}
+                </p>
+                <p>
+                    {{repair.address}}
+                </p>
+                <p>
+                    {{repair.date | date:'MM/dd/yyyy'}}
+                </p>
+                <p>
+                    <h5>Description:</h5> {{repair.description}}
+                </p>
+                <p>
+                    <h5>Comments:</h5> {{repair.comments}}
+                </p>
+                <p>
+                    {{repair.quantity}} {{repair.part}}
+                </p>
+
+            </div>
+
+            <div ng-show="repair.isEdited">
+                <div layout-gt-xs="row">
+                    <md-input-container class="md-block" flex-gt-xs>
+                        <label>Company</label>
+                        <input ng-model="repair.company">
+                    </md-input-container>
+
+                    <md-input-container>
+                        <label>Enter date</label>
+                        <md-datepicker ng-model="repair.date" md-open-on-focus></md-datepicker>
+                    </md-input-container>
+                </div>
+
+                <div layout-gt-sm="row">
+                    <md-input-container class="md-block" flex-gt-sm>
+                        <label>First name</label>
+                        <input ng-model="repair.firstName">
+                    </md-input-container>
+
+                    <md-input-container class="md-block" flex-gt-sm>
+                        <label>Last name</label>
+                        <input ng-model="repair.lastName">
+                    </md-input-container>
+                </div>
+
+                <md-input-container class="md-block">
+                    <label>Customer Address</label>
+                    <input vs-google-autocomplete="{ types: ['address'] }" placeholder="" ng-model="repair.address">
+                </md-input-container>
+
+                <md-input-container class="md-block">
+                    <label>Customer Description</label>
+                    <textarea ng-model="repair.description" md-maxlength="200" rows="4" md-select-on-focus></textarea>
+                </md-input-container>
+
+                <md-input-container class="md-block">
+                    <label>Repair Comments</label>
+                    <textarea ng-model="repair.comments" md-maxlength="200" rows="4" md-select-on-focus></textarea>
+                </md-input-container>
+
+                <md-input-container class="md-block">
+                    <label>Search for Customer</label>
+                    <input ng-model="searchCustomer">
+                </md-input-container>
+
+                <div layout-gt-sm="row">
+                    <md-input-container class="md-block" flex="15">
+                        <label>Qty.</label>
+                        <input ng-model="repair.quantity">
+                    </md-input-container>
+
+                    <md-input-container class="md-block" flex="40">
+                        <label>Repair Parts</label>
+                        <md-select ng-model="repair.part">
+                            <md-option ng-value="part" ng-repeat="part in parts track by $index">{{part}}</md-option>
+                        </md-select>
+                    </md-input-container>
+                </div>
+
+                <md-button class="md-raised" ng-click="repair.isEdited = false">Update Repair</md-button>
+            </div>
+        </md-card-content>
+
+        <md-card-actions ng-hide="repair.isEdited" layout="row" layout-align="end center">
+            <md-button class="md-raised" ng-click="repair.isEdited = true">Update</md-button>
+            <md-button class="md-raised" ng-click="removeRepair($index)">Delete</md-button>
+        </md-card-actions>
+    </md-card>
 
 </div>
