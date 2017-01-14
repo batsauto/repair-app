@@ -14,24 +14,29 @@
         <md-card-content>
 
             <div ng-hide="repair.isEdited">
-                <p>
-                    {{repair.company}}
-                </p>
+                <div layout-gt-sm="row">
+                    <p>
+                        {{repair.company}}
+                    </p>
+                    <span flex></span>
+                    <p>
+                        {{repair.date | date:'MM/dd/yyyy'}}
+                    </p>
+                </div>
+
                 <p>
                     {{repair.address}}
                 </p>
-                <p>
-                    {{repair.date | date:'MM/dd/yyyy'}}
-                </p>
-                <p>
-                    <h5>Description:</h5> {{repair.description}}
-                </p>
-                <p>
-                    <h5>Comments:</h5> {{repair.comments}}
-                </p>
-                <p>
-                    {{repair.quantity}} {{repair.part}}
-                </p>
+                <div layout-gt-sm="row">
+                    <div flex="50">
+                        <h5>Description:</h5>
+                        <p>{{repair.description}}</p>
+                    </div>
+                    <div flex="50">
+                        <h5>Comments:</h5>
+                        <p>{{repair.comments}}</p>
+                    </div>
+                </div>
 
             </div>
 
