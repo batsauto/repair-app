@@ -88,16 +88,43 @@
                 <div layout-gt-sm="row">
                     <md-input-container class="md-block" flex="15">
                         <label>Qty.</label>
-                        <input ng-model="repair.quantity">
+                        <input ng-model="newPartsPerRepair.quantity">
                     </md-input-container>
 
                     <md-input-container class="md-block" flex="40">
                         <label>Repair Parts</label>
-                        <md-select ng-model="repair.part">
+                        <md-select ng-model="newPartsPerRepair.part">
                             <md-option ng-value="part" ng-repeat="part in parts track by $index">{{part}}</md-option>
                         </md-select>
                     </md-input-container>
+
+                    <md-button class="md-raised" ng-click="addPartsPerRepair()">Add Part</md-button>
+
                 </div>
+
+
+                <md-table-container class="md-padding md-whiteframe-2dp">
+                    <table md-table>
+                        <thead md-head>
+                            <tr md-row>
+                                <th md-column><span>Quantity</span></th>
+                                <th md-column><span>Item Descritpion</span></th>
+                            </tr>
+                        </thead>
+                        <tbody md-body>
+                            <tr md-row ng-repeat="partsPerRepair in partsPerRepairs track by $index">
+                                <td md-cell>{{partsPerRepair.quantity}}</td>
+                                <td md-cell>{{partsPerRepair.part}}</td>
+                                <td>
+                                    <div md-button class="md-raised" ng-click="removePartsPerRepair($index)">Delete Part</div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </md-table-container>
+
+
+
 
                 <md-button class="md-raised" ng-click="repair.isEdited = false">Update Repair</md-button>
             </div>
