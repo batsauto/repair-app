@@ -13,6 +13,22 @@
     <link rel="stylesheet" href="angular-material-data-table/dist/md-data-table.css">
     <!-- angular animate css -->
     <link rel="stylesheet" href="./static/CSS/animations.css">
+
+</head>
+
+<body>
+
+    <md-content class="md-padding">
+        <!-- Navbar -->
+        <md-nav-bar class="md-primary" md-selected-nav-item="currentNavItem" nav-bar-aria-label="navigation links">
+            <md-nav-item md-nav-href="/repairs" name="repairs">Repairs</md-nav-item>
+            <md-nav-item md-nav-href="/field" name="field">Field</md-nav-item>
+        </md-nav-bar>
+        <!-- Main Content -->
+        <div ng-view=""></div>
+    </md-content>
+
+
     <!-- Angular Library -->
     <script src="angular/angular.js"></script>
     <script src="angular-route/angular-route.js"></script>
@@ -36,20 +52,6 @@
     <script src="angular-material-data-table/dist/md-data-table.js" charset="utf-8"></script>
     <!-- vsGoogleAutocomplete -->
     <script src="./library/vs-google-autocomplete.js"></script>
-
-</head>
-
-<body>
-
-    <md-content class="md-padding">
-        <!-- Navbar -->
-        <md-nav-bar class="md-primary" md-selected-nav-item="currentNavItem" nav-bar-aria-label="navigation links">
-            <md-nav-item md-nav-href="/repairs" name="repairs">Repairs</md-nav-item>
-            <md-nav-item md-nav-href="/field" name="field">Field</md-nav-item>
-        </md-nav-bar>
-        <!-- Main Content -->
-        <div ng-view=""></div>
-    </md-content>
 
 
 </body>
