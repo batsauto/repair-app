@@ -80,11 +80,6 @@
                     <textarea ng-model="repair.comments" md-maxlength="200" rows="4" md-select-on-focus></textarea>
                 </md-input-container>
 
-                <md-input-container class="md-block">
-                    <label>Search for Customer</label>
-                    <input ng-model="searchCustomer">
-                </md-input-container>
-
                 <div layout-gt-sm="row">
                     <md-input-container class="md-block" flex="15">
                         <label>Qty.</label>
@@ -102,28 +97,23 @@
 
                 </div>
 
-
-                <md-table-container class="md-padding md-whiteframe-2dp">
-                    <table md-table>
-                        <thead md-head>
-                            <tr md-row>
-                                <th md-column><span>Quantity</span></th>
-                                <th md-column><span>Item Descritpion</span></th>
+                    <table class="md-padding md-whiteframe-2dp">
+                        <thead>
+                            <tr >
+                                <th><span>Quantity</span></th>
+                                <th><span>Item Descritpion</span></th>
                             </tr>
                         </thead>
-                        <tbody md-body>
-                            <tr md-row ng-repeat="partsPerRepair in partsPerRepairs track by $index">
-                                <td md-cell>{{partsPerRepair.quantity}}</td>
-                                <td md-cell>{{partsPerRepair.part}}</td>
+                        <tbody>
+                            <tr ng-repeat="partsPerRepair in partsPerRepairs track by $index">
+                                <td>{{partsPerRepair.quantity}}</td>
+                                <td>{{partsPerRepair.part}}</td>
                                 <td>
                                     <div md-button class="md-raised" ng-click="removePartsPerRepair($index)">Delete Part</div>
                                 </td>
                             </tr>
                         </tbody>
                     </table>
-                </md-table-container>
-
-
 
 
                 <md-button class="md-raised" ng-click="repair.isEdited = false">Update Repair</md-button>
