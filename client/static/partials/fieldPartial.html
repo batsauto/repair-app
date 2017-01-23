@@ -38,6 +38,26 @@
                     </div>
                 </div>
 
+                <table class="md-padding md-whiteframe-2dp">
+                    <thead>
+                        <tr >
+                            <th><span>Quantity</span></th>
+                            <th><span>Item Descritpion</span></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="repair in repairs track by $index">
+                            <td>{{repair.partsPerRepair.quantity}}</td>
+                            <td>{{repair.partsPerRepair.part}}</td>
+                            <td>
+                                <div md-button class="md-raised" ng-click="removePartsPerRepair($index)">Delete Part</div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+
+
             </div>
 
             <div ng-show="repair.isEdited">
@@ -105,9 +125,9 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr ng-repeat="partsPerRepair in partsPerRepairs track by $index">
-                                <td>{{partsPerRepair.quantity}}</td>
-                                <td>{{partsPerRepair.part}}</td>
+                            <tr ng-repeat="repair in repairs track by $index">
+                                <td>{{repair.partsPerRepair}}</td>
+                                <td>{{repair.partsPerRepair}}</td>
                                 <td>
                                     <div md-button class="md-raised" ng-click="removePartsPerRepair($index)">Delete Part</div>
                                 </td>
@@ -116,12 +136,12 @@
                     </table>
 
 
-                <md-button class="md-raised" ng-click="repair.isEdited = false">Update Repair</md-button>
+                <md-button class="md-raised" ng-click="repair.isEdited = false">Save Repair</md-button>
             </div>
         </md-card-content>
 
         <md-card-actions ng-hide="repair.isEdited" layout="row" layout-align="end center">
-            <md-button class="md-raised" ng-click="repair.isEdited = true">Update</md-button>
+            <md-button class="md-raised" ng-click="repair.isEdited = true">Edit Repair</md-button>
             <md-button class="md-raised" ng-click="removeRepair($index)">Delete</md-button>
         </md-card-actions>
     </md-card>

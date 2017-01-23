@@ -19,16 +19,16 @@ myAppModule.factory("partFactory", function() {
         "1 1/2 inch ball valve"
     ];
 
-    var partsPerRepairs = [
-      {
-        quantity: "1",
-        part: "Gel Cap"
-      },
-      {
-        quantity: "3",
-        part: "Shrub Adapter"
-      }
-    ];
+    // var partsPerRepairs = [
+    //   {
+    //     quantity: "1",
+    //     part: "Gel Cap"
+    //   },
+    //   {
+    //     quantity: "3",
+    //     part: "Shrub Adapter"
+    //   }
+    // ];
 
     var factory = {};
 
@@ -36,17 +36,17 @@ myAppModule.factory("partFactory", function() {
         callback(parts);
     };
 
-    factory.getPartsPerRepair = function(callback) {
-        callback(partsPerRepairs);
-    };
-
-    factory.addPartsPerRepair = function(newPartsPerRepair) {
-        partsPerRepairs.push(newPartsPerRepair);
-    };
-
-    factory.removePartsPerRepair = function($index) {
-        partsPerRepairs.splice($index, 1);
-    };
+    // factory.getPartsPerRepair = function(callback) {
+    //     callback(partsPerRepairs);
+    // };
+    //
+    // factory.addPartsPerRepair = function(newPartsPerRepair) {
+    //     partsPerRepairs.push(newPartsPerRepair);
+    // };
+    //
+    // factory.removePartsPerRepair = function($index) {
+    //     partsPerRepairs.splice($index, 1);
+    // };
 
 
     return factory;

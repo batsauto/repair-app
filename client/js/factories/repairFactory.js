@@ -5,14 +5,28 @@ myAppModule.factory("repairFactory", function() {
             company: "Do it right Painting",
             address: "561 Mississippi Ave, Yuba City, CA 95991, USA",
             date: new Date(),
-            description: "Broken sprinkler in front yard."
+            description: "Broken sprinkler in front yard.",
+            partsPerRepair: [{
+              quantity: "1",
+              part: "Gel Cap"
+            }, {
+               quantity: "3",
+               part: "Shrub Adapter"
+            }]
         },
         {
             firstName: "Jane",
             lastName: "Doe",
             address: "123 Main St, Yuba City, CA 95991, USA",
             date: new Date(),
-            description: "Needs new irrigation clock."
+            description: "Needs new irrigation clock.",
+            partsPerRepair: [{
+              quantity: "2",
+              part: "Head Light Fluid"
+            }, {
+               quantity: "5",
+               part: "Elbow Grease"
+            }]
         }
     ];
 
@@ -33,6 +47,14 @@ myAppModule.factory("repairFactory", function() {
 
     factory.editRepair = function(repair) {
         var selectedRepair = repair;
+    };
+
+    factory.addPartsPerRepair = function(newPartsPerRepair, index) {
+        repairs[index].partsPerRepair.push(newPartsPerRepair);
+    };
+
+    factory.removePartsPerRepair = function($index) {
+        repairs[$index].partsPerRepairs.splice($index, 1);
     };
 
     return factory;
