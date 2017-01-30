@@ -7,7 +7,8 @@ myAppModule.config(["$routeProvider", "$locationProvider", function($routeProvid
         .when("/field", {
             templateUrl: "./static/partials/fieldPartial.html",
             controller: "fieldController"
-        });
+        })
+        ;
         $locationProvider.html5Mode({
         enabled: true,
         requireBase: false

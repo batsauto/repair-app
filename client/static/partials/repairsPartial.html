@@ -1,5 +1,33 @@
-<div>
-    <div class="md-padding">
+<div layout="row">
+
+  <div ng-include="'./static/partials/sideNav.html'" layout="vertical"></div>
+
+  <div layout="column" flex>
+      <div ng-include="'./static/partials/toolBarHeader.html'" layout="vertical"></div>
+      <md-content class="md-padding" flex>
+          <div ng-include="'./static/partials/mainContent.html'"></div>
+          <md-tabs selected="tabIndex" md-dynamic-height="true" md-stretch-tabs="always">
+            <md-tab label="Info">
+              <div ng-include="'./static/partials/tabInfo.html'">
+
+              </div>
+            </md-tab>
+            <md-tab label="Parts">
+              <div ng-include="'./static/partials/tabParts.html'">
+
+              </div>
+            </md-tab>
+           </md-tabs>
+      </md-content>
+  </div>
+
+
+
+
+
+
+
+    <!-- <div class="md-padding">
         <h3>New Repair Form</h3>
         <form name="repairForm">
 
@@ -138,6 +166,6 @@
 
     <div>
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA2ij1AVJozmyNYh8IG9tZzTNPD8NqhZZc&libraries=places&callback=initAutocomplete" async defer></script>
-    </div>
+    </div> -->
 
 </div>

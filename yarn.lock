@@ -17,11 +17,21 @@ angular-aria@^1.6.1:
   version "1.6.1"
   resolved "https://registry.yarnpkg.com/angular-aria/-/angular-aria-1.6.1.tgz#0fcbf1152b4c26e8671daddea7443a1b983434b9"
 
+angular-avatar@^1.3.0:
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/angular-avatar/-/angular-avatar-1.3.0.tgz#8a327edb7e76f062eb62881818bcd4311d2c3652"
+
 angular-filter@^0.5.14:
   version "0.5.14"
   resolved "https://registry.yarnpkg.com/angular-filter/-/angular-filter-0.5.14.tgz#069cc76f92f4e1b898cd822f87414da0533c8a2a"
   dependencies:
     angular "*"
+
+angular-material-icons@^0.7.1:
+  version "0.7.1"
+  resolved "https://registry.yarnpkg.com/angular-material-icons/-/angular-material-icons-0.7.1.tgz#e5eab4853b61c331f58f9e7e6e54b6e1d65e4f9b"
+  dependencies:
+    angular ">=1.3.0"
 
 angular-material@^1.1.1:
   version "1.1.1"
@@ -35,7 +45,7 @@ angular-route@^1.6.1:
   version "1.6.1"
   resolved "https://registry.yarnpkg.com/angular-route/-/angular-route-1.6.1.tgz#6d1087f4d6a1422026f91a13be86adc8f1d20ec7"
 
-angular@*, angular@^1.6.1:
+angular@*, angular@>=1.3.0, angular@^1.6.1:
   version "1.6.1"
   resolved "https://registry.yarnpkg.com/angular/-/angular-1.6.1.tgz#a7b6d763a74c157325692619e97257e69d9b6a27"
 

@@ -3,6 +3,9 @@
 
 <head>
     <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
+
     <title> Repair App for Barrows Landscaping</title>
     <link rel="stylesheet" href="./static/CSS/style.css">
     <!-- material css library -->
@@ -11,20 +14,25 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic">
     <!-- angular animate css -->
     <link rel="stylesheet" href="./static/CSS/animations.css">
+    <!-- angular material icons css -->
+    <link rel="stylesheet" href="angular-material-icons/angular-material-icons.css">
 
 </head>
 
 <body>
+    <md-button href="/repairs">Repairs</md-button>
+    <md-button href="/field">Field</md-button>
 
-    <md-content class="md-padding">
-        <!-- Navbar -->
+    <div ng-view=""></div>
+    <!-- <md-content class="md-padding">
+
         <md-nav-bar class="md-primary" md-selected-nav-item="currentNavItem" nav-bar-aria-label="navigation links">
             <md-nav-item md-nav-href="/repairs" name="repairs">Repairs</md-nav-item>
             <md-nav-item md-nav-href="/field" name="field">Field</md-nav-item>
         </md-nav-bar>
-        <!-- Main Content -->
+
         <div ng-view=""></div>
-    </md-content>
+    </md-content> -->
 
 
     <!-- Angular Library -->
@@ -48,6 +56,10 @@
     <script src="angular-filter/dist/angular-filter.js" charset="utf-8"></script>
     <!-- vsGoogleAutocomplete -->
     <script src="./library/vs-google-autocomplete.js"></script>
+    <!-- angular material icons -->
+    <script src="angular-material-icons/angular-material-icons.js" charset="utf-8"></script>
+    <!-- angular avatar -->
+    <script src="angular-avatar/dist/angular-avatar.js" charset="utf-8"></script>
 
 
 </body>

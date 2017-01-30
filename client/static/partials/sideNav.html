@@ -1,0 +1,30 @@
+<md-sidenav class="md-sidenav-left" md-component-id="left" md-is-locked-open="$mdMedia('gt-sm')">
+    <md-toolbar>
+        <h1>Repairs</h1>
+    </md-toolbar>
+    <div class="md-padding">
+      <md-autocomplete
+        md-search-text="searchRepair"
+        md-items="repair in repairs | filter: searchRepair"
+        md-item-text="repair.fullName"
+        md-min-length="1"
+        placeholder="Search Customer">
+        <md-item-template>
+          <span md-highlight-text="searchRepair" md-highlight-flags="ig">{{repair.firstName}} {{repair.lastName}}</span>
+        </md-item-template>
+        <md-not-found>
+          No repair matching "{{searchRepair}}" were found.
+        </md-not-found>
+      </md-autocomplete>
+    </div>
+    <md-content>
+        <md-list class="md-padding">
+            <md-list-item ng-repeat="repair in repairs | filter: searchRepair | orderBy: 'date'">
+                <md-button ng-click="selectRepair(repair)" ng-class="{'selected': repair === selected}" >
+                    <ng-avatar class="avatar" bg-color="#616161" initials="{{repair.avatarInital}}" round-shape="true"></ng-avatar>
+                    {{repair.firstName}} {{repair.lastName}}
+                </md-button>
+            </md-list-item>
+        </md-list>
+    </md-content>
+</md-sidenav>
