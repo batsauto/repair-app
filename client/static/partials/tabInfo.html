@@ -1,1 +1,21 @@
-<p>{{selected.address}}</p>
+<div class="md-padding">
+    <div layout="column">
+        <span class="infoTitle"> Address:</span>
+        <p class="infoContent">{{selected.address}}</p>
+    </div>
+    <div layout="column">
+        <span class="infoTitle"> Company:</span>
+        <p class="infoContent">{{selected.company}}</p>
+    </div>
+    <div layout="row">
+        <div layout="column" flex="50">
+            <p class="infoTitle"> Description:</p>
+            <span class="infoContent">{{selected.description}}</span>
+        </div>
+        <div layout="column" flex="50">
+            <p class="infoTitle"> Comments:</p>
+            <span class="infoContent">{{selected.comments}}</span>
+        </div>
+    </div>
+
+</div>
