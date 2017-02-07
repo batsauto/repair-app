@@ -8,7 +8,7 @@ var myAppModule = angular.module("myApp", ["ngRoute", "vsGoogleAutocomplete", "n
 
 myAppModule.config(function($mdThemingProvider) {
   $mdThemingProvider.theme('default')
-    .primaryPalette('grey')
+    .primaryPalette('blue-grey')
     .accentPalette('red')
     .warnPalette('deep-orange')
 });

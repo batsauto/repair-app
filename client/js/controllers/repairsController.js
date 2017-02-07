@@ -1,4 +1,4 @@
-myAppModule.controller("repairsController", function($scope, $mdSidenav, $mdMedia, repairFactory) {
+myAppModule.controller("repairsController", function($scope, $mdSidenav, $mdDialog, $mdMedia, repairFactory) {
     $scope.repairs = [];
     $scope.newpartsPerRepair = {};
     $scope.selected = null;
@@ -26,9 +26,22 @@ myAppModule.controller("repairsController", function($scope, $mdSidenav, $mdMedi
         console.log(repairs);
     });
 
-    $scope.addRepair = function() {
-        repairFactory.addRepair($scope.newRepair);
-        $scope.newRepair = {};
+    $scope.addRepair = function($event) {
+        var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
+        $mdDialog.show( {
+            templateUrl: './static/partials/newRepairDialog.html',
+            parent: angular.element(document.body),
+            targetEvent: $event,
+            controller: "addUserDialogController",
+            clickOutsideToClose: true,
+            fullscreen: useFullScreen
+        }).then(function () {
+            repairFactory.addRepair($scope.newRepair);
+            $scope.selectRepair($scope.newRepair);
+            $scope.newRepair = {};
+        }, function() {
+            console.log("You Cancelled the Dialog");
+        });
     };
 
     $scope.editRepair = function() {

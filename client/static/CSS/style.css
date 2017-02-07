@@ -8,14 +8,22 @@ html, body {
 
 md-toolbar h1 {
     color: inherit;
-    font-size: 1.25em;
+    font-size: 1.250em;
     font-weight: 400;
     margin: auto;
 }
 
 md-toolbar .md-toolbar-tools h1 {
-    font-size: 1.25em;
+    font-size: 1.50em;
     font-weight: 400;
+}
+.repairNameButton {
+    padding-left: 5px;
+    display: inherit;
+}
+
+.repairDateButton {
+    font-weight: 300;
 }
 
 md-list .md-button {
@@ -23,15 +31,33 @@ md-list .md-button {
     font-weight: 500;
     text-align: left;
     width: 100%;
+    display: inherit;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+header > a > img {
+    margin: auto;
+    display: flex;
+    padding-top: 15px;
+}
+header {
+    width: 100%;
+    margin: 0;
+    background-color: #607D8B;
 }
 
 md-list .md-button.selected {
     color: #FF5252;
 }
 
+.sideNavButton {
+    display: inline-block;
+}
+
 .avatar {
     display: inline-block !important;
-
 }
 
 .infoTitle {

@@ -1,7 +1,15 @@
 <div class="md-padding">
-    <div layout="column">
-        <span class="infoTitle"> Address:</span>
-        <p class="infoContent">{{selected.address}}</p>
+
+    <div layout="row" flex>
+        <div layout="column">
+            <span class="infoTitle"> Address:</span>
+            <p class="infoContent">{{selected.address}}</p>
+        </div>
+        <div flex></div>
+        <div layout="column">
+            <span class="infoTitle"> Date:</span>
+            <p class="infoContent">{{selected.date | date:'MM/dd/yyyy'}}</p>
+        </div>
     </div>
     <div layout="column">
         <span class="infoTitle"> Company:</span>

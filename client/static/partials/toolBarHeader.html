@@ -1,8 +1,11 @@
-<md-toolbar>
+<md-toolbar class="md-whiteframe-1dp">
     <div class="md-toolbar-tools">
-        <md-button ng-click="toggleSideNav()" hide-gt-sm class="md-icon-button">
+        <md-button ng-click="toggleSideNav()" hide-gt-sm class="md-icon-button" aria-label="List of Repairs">
             <ng-md-icon icon="menu" ></ng-md-icon>
         </md-button>
-        <h1>Repair Manager</h1>
+        <!--<h1>Repair Manager</h1>-->
+        <h1>{{selected.firstName}} {{selected.lastName}}</h1>
+        <div flex></div>
+        <h5>{{selected.date | date:'MM/dd/yyyy'}}</h5>
     </div>
 </md-toolbar>

@@ -1,4 +1,9 @@
-<md-sidenav class="md-sidenav-left" md-component-id="left" md-is-locked-open="$mdMedia('gt-sm')">
+<md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-sm')">
+    <header class="md-primary">
+        <a href="/">
+            <img src="./static/img/logo1.png" alt="">
+        </a>
+    </header>
     <md-toolbar>
         <h1>Repairs</h1>
     </md-toolbar>
@@ -19,17 +24,21 @@
         </md-autocomplete>
     </div>
     <md-content>
-        <md-list class="md-padding">
+        <md-list class="">
             <md-list-item ng-repeat="repair in repairs | filter: searchRepair | orderBy: 'date'">
                 <md-button ng-click="selectRepair(repair)" ng-class="{'selected': repair === selected}">
                     <ng-avatar class="avatar" bg-color="#616161" initials="{{repair.avatarInital}}"
                                round-shape="true"></ng-avatar>
+                    <div class="repairNameButton" flex>
                     {{repair.firstName}} {{repair.lastName}}
+                    <div flex></div>
+                    <span class="repairDateButton">{{repair.date | date:'MM/dd/yyyy'}}</span>
+                    </div>
                 </md-button>
             </md-list-item>
         </md-list>
     </md-content>
-    <md-button class="md-fab md-fab-bottom-right" aria-label="Add Repair">
+    <md-button class="md-fab md-fab-bottom-right" aria-label="Add Repair" ng-click="addRepair($event)">
         <ng-md-icon icon="add"></ng-md-icon>
     </md-button>
 </md-sidenav>
