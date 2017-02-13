@@ -4,9 +4,10 @@ myAppModule.factory("repairFactory", function() {
             lastName: "Doe",
             fullName: "John Doe",
             company: "Do it right Painting",
-            address: "561 Mississippi Ave, Yuba City, CA 95991, USA",
+            address: "530 Bouge Road, Yuba City, CA 95991, USA",
             date: new Date(),
             description: "Broken sprinkler in front yard.",
+            comments: "Fixed Broken Sprinkler in Front Yard. There was a root that pinched the Pipe",
             avatarInital: "JD",
             partsPerRepair: [{
               quantity: "1",
@@ -23,6 +24,7 @@ myAppModule.factory("repairFactory", function() {
             address: "123 Main St, Yuba City, CA 95991, USA",
             date: new Date(),
             description: "Needs new irrigation clock.",
+            comments: "Replaced Clock with new ESP-LXME",
             avatarInital: "JD",
             partsPerRepair: [{
               quantity: "2",

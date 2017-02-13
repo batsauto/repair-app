@@ -79,3 +79,9 @@ md-list .md-button.selected {
     font-size: 1.75em;
     padding-top: inherit;
 }
+
+.map {
+    display: inherit;
+    height: 200px;
+    width: 100%;
+}

@@ -1,4 +1,4 @@
-myAppModule.controller("repairsController", function($scope, $mdSidenav, $mdDialog, $mdMedia, repairFactory) {
+myAppModule.controller("repairsController", function($scope, $mdSidenav, $mdDialog, $mdMedia, repairFactory, NgMap) {
     $scope.repairs = [];
     $scope.newpartsPerRepair = {};
     $scope.selected = null;
@@ -60,4 +60,10 @@ myAppModule.controller("repairsController", function($scope, $mdSidenav, $mdDial
     $scope.removePartsPerRepair = function($index) {
       repairFactory.removePartsPerRepair($index);
     };
+
+    NgMap.getMap().then(function(map) {
+        console.log(map.getCenter());
+        console.log('markers', map.markers);
+        console.log('shapes', map.shapes);
+    });
 });

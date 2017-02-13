@@ -335,6 +335,10 @@ next-tick@~0.2.2:
   version "0.2.2"
   resolved "https://registry.yarnpkg.com/next-tick/-/next-tick-0.2.2.tgz#75da4a927ee5887e39065880065b7336413b310d"
 
+ngmap@^1.18.0:
+  version "1.18.0"
+  resolved "https://registry.yarnpkg.com/ngmap/-/ngmap-1.18.0.tgz#5dc30cbf7a6c5a10ad207364bf04d48dc8f78fbc"
+
 on-finished@~2.3.0:
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/on-finished/-/on-finished-2.3.0.tgz#20f1336481b083cd75337992a16971aa2d906947"
