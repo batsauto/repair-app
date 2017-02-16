@@ -1,6 +1,6 @@
 <md-dialog>
     <md-toolbar>
-        <div class="tool-bar-tools" layout="row">
+        <div class="md-toolbar-tools" layout="row">
             <h3 flex>New Repair Form</h3>
 
             <md-button class="md-icon-button" ng-click="cancel()">
@@ -11,18 +11,18 @@
     <md-dialog-content>
         <form name="repairForm" class="md-padding">
 
-            <div layout-gt-xs="row">
+            <div layout="row" flex>
                 <!--<md-input-container class="md-block" flex-gt-xs>-->
                     <!--<label>Company</label>-->
                     <!--<input ng-model="newRepair.company">-->
                 <!--</md-input-container>-->
 
-                <md-input-container>
+                <md-input-container class="md-block" flex>
                     <label>Enter date</label>
                     <md-datepicker ng-model="newRepair.date" md-open-on-focus></md-datepicker>
                 </md-input-container>
 
-                <md-input-container>
+                <md-input-container class="md-block" flex flex-gt-sm="30">
                     <label>Time</label>
                     <input type="time" ng-model="newRepair.time">
                 </md-input-container>
@@ -45,11 +45,16 @@
                 <input vs-google-autocomplete="{ types: ['address'] }" placeholder="" ng-model="newRepair.address">
             </md-input-container>
 
-            <md-input-container class="">
-                <label>Cell Phone</label>
-                <input ng-model="newRepair.phoneCell">
-            </md-input-container>
-
+            <div layout-gt-sm="row">
+                <md-input-container class="md-block" flex-gt-sm>
+                    <label>Cell Phone</label>
+                    <input ng-model="newRepair.phoneCell">
+                </md-input-container>
+                <md-input-container class="md-block" flex-gt-sm>
+                    <label>Email</label>
+                    <input ng-model="newRepair.email">
+                </md-input-container>
+            </div>
 
             <md-input-container class="md-block">
                 <label>Customer Description</label>

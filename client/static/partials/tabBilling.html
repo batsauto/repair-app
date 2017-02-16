@@ -15,14 +15,19 @@
 
         </md-card>
     </div>
-    <div layout="column" class="md-padding">
+    <div layout="column" class="md-padding" flex>
         <div layout="row">
-            <span class="infoContent">Number of Workers</span>
-            <span class="infoContent">Number of Hours</span>
-            <span class="infoContent">Total Man Hours</span>
+            <span class="infoContent" flex="33">Number of Workers</span>
+            <span class="infoContent" flex="33">Number of Hours</span>
+            <span class="infoContent" flex="33">Total Man Hours</span>
         </div>
 
-        <p>Number of workers</p>
+        <div layout="row" class="md-padding">
+            <span class="" flex="33">{{selected.numWorkers}}</span>
+            <span class="" flex="33">{{selected.numHours}}</span>
+            <span class="md-body-2" flex="33">{{selected.numWorkers * selected.numHours}}</span>
+        </div>
+
 
     </div>
 </div>

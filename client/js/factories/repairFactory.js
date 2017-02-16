@@ -10,6 +10,8 @@ myAppModule.factory("repairFactory", function() {
             description: "Broken sprinkler in front yard.",
             comments: "Fixed Broken Sprinkler in Front Yard. There was a root that pinched the Pipe",
             avatarInital: "JD",
+            numWorkers: 2,
+            numHours: 1,
             partsPerRepair: [{
               quantity: "1",
               part: "Gel Cap"
@@ -28,6 +30,8 @@ myAppModule.factory("repairFactory", function() {
             description: "Needs new irrigation clock.",
             comments: "Replaced Clock with new ESP-LXME",
             avatarInital: "JD",
+            numWorkers: 2,
+            numHours: 3,
             partsPerRepair: [{
               quantity: "2",
               part: "Head Light Fluid"
