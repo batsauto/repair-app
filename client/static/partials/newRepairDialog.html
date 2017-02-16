@@ -2,7 +2,6 @@
     <md-toolbar>
         <div class="md-toolbar-tools" layout="row">
             <h3 flex>New Repair Form</h3>
-
             <md-button class="md-icon-button" ng-click="cancel()">
                 <ng-md-icon icon="close" aria-label="Close dialog"></ng-md-icon>
             </md-button>
@@ -22,9 +21,9 @@
                     <md-datepicker ng-model="newRepair.date" md-open-on-focus></md-datepicker>
                 </md-input-container>
 
-                <md-input-container class="md-block" flex flex-gt-sm="30">
+                <md-input-container class="md-block" flex flex-gt-sm="35">
                     <label>Time</label>
-                    <input type="time" ng-model="newRepair.time">
+                    <input type="time" ng-model="newRepair.date">
                 </md-input-container>
             </div>
 
