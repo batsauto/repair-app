@@ -8,14 +8,17 @@ html, body {
 
 md-toolbar h1 {
     color: inherit;
-    font-size: 1.250em;
+    font-size: 1.50em;
     font-weight: 400;
     margin: auto;
+
 }
+
 
 md-toolbar .md-toolbar-tools h1 {
     font-size: 1.50em;
     font-weight: 400;
+    margin: auto;
 }
 .repairNameButton {
     padding-left: 5px;
@@ -52,9 +55,6 @@ md-list .md-button.selected {
     color: #FF5252;
 }
 
-.sideNavButton {
-    display: inline-block;
-}
 
 .avatar {
     display: inline-block !important;

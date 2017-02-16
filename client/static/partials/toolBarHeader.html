@@ -1,11 +1,37 @@
 <md-toolbar class="md-whiteframe-1dp">
     <div class="md-toolbar-tools">
         <md-button ng-click="toggleSideNav()" hide-gt-sm class="md-icon-button" aria-label="List of Repairs">
-            <ng-md-icon icon="menu" ></ng-md-icon>
+            <ng-md-icon icon="menu"></ng-md-icon>
         </md-button>
         <!--<h1>Repair Manager</h1>-->
-        <h1>{{selected.firstName}} {{selected.lastName}}</h1>
+        <h1 class="md-toolbar-tools">{{selected.firstName}} {{selected.lastName}}</h1>
         <div flex></div>
-        <h5>{{selected.date | date:'MM/dd/yyyy'}}</h5>
+        <h5 class="md-toolbar-tools">{{selected.date | date:'MM/dd/yyyy @ h:mma'}}</h5>
     </div>
+
+
+    <md-fab-speed-dial ng-cloak md-direction="down" aria-label="User Menu" class="md-fling md-fab-top-right">
+    <md-fab-trigger>
+        <md-button class="md-fab" aria-label="user menu">
+            <ng-md-icon icon="menu"></ng-md-icon>
+        </md-button>
+    </md-fab-trigger>
+    <md-fab-actions>
+        <md-button aria-label="call user" class="md-fab md-raised md-mini">
+            <ng-md-icon icon="call"></ng-md-icon>
+        </md-button>
+    </md-fab-actions>
+    <md-fab-actions>
+        <md-button aria-label="edit user" class="md-fab md-raised md-mini">
+            <ng-md-icon icon="edit"></ng-md-icon>
+        </md-button>
+    </md-fab-actions>
+    <md-fab-actions>
+        <md-button aria-label="delete user" class="md-fab md-raised md-mini">
+            <ng-md-icon icon="delete"></ng-md-icon>
+        </md-button>
+    </md-fab-actions>
+    </md-fab-speed-dial>
+
+
 </md-toolbar>

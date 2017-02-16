@@ -12,14 +12,19 @@
         <form name="repairForm" class="md-padding">
 
             <div layout-gt-xs="row">
-                <md-input-container class="md-block" flex-gt-xs>
-                    <label>Company</label>
-                    <input ng-model="newRepair.company">
-                </md-input-container>
+                <!--<md-input-container class="md-block" flex-gt-xs>-->
+                    <!--<label>Company</label>-->
+                    <!--<input ng-model="newRepair.company">-->
+                <!--</md-input-container>-->
 
                 <md-input-container>
                     <label>Enter date</label>
                     <md-datepicker ng-model="newRepair.date" md-open-on-focus></md-datepicker>
+                </md-input-container>
+
+                <md-input-container>
+                    <label>Time</label>
+                    <input type="time" ng-model="newRepair.time">
                 </md-input-container>
             </div>
 
@@ -36,8 +41,13 @@
             </div>
 
             <md-input-container class="md-block">
-                <label>Customer Address</label>
+                <label>Address</label>
                 <input vs-google-autocomplete="{ types: ['address'] }" placeholder="" ng-model="newRepair.address">
+            </md-input-container>
+
+            <md-input-container class="">
+                <label>Cell Phone</label>
+                <input ng-model="newRepair.phoneCell">
             </md-input-container>
 
 
