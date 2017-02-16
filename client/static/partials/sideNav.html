@@ -1,0 +1,44 @@
+<md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-sm')">
+    <header class="md-primary">
+        <a href="/">
+            <img src="./static/img/logo1.png" alt="">
+        </a>
+    </header>
+    <md-toolbar>
+        <h1>Repairs</h1>
+    </md-toolbar>
+    <div class="md-padding">
+        <md-autocomplete
+                md-search-text="searchRepair"
+                md-items="repair in repairs | filter: searchRepair"
+                md-item-text="repair.fullName"
+                md-min-length="1"
+                placeholder="Search Customer">
+            <md-item-template>
+                <span md-highlight-text="searchRepair"
+                      md-highlight-flags="ig">{{repair.firstName}} {{repair.lastName}}</span>
+            </md-item-template>
+            <md-not-found>
+                No repair matching "{{searchRepair}}" were found.
+            </md-not-found>
+        </md-autocomplete>
+    </div>
+    <md-content>
+        <md-list class="">
+            <md-list-item ng-repeat="repair in repairs | filter: searchRepair | orderBy: 'date'">
+                <md-button ng-click="selectRepair(repair)" ng-class="{'selected': repair === selected}">
+                    <ng-avatar class="avatar" bg-color="#616161" initials="{{repair.avatarInital}}"
+                               round-shape="true"></ng-avatar>
+                    <div class="repairNameButton" flex>
+                    {{repair.firstName}} {{repair.lastName}}
+                    <div flex></div>
+                    <span class="repairDateButton">{{repair.date | date:'MM/dd'}}</span>
+                    </div>
+                </md-button>
+            </md-list-item>
+        </md-list>
+    </md-content>
+    <md-button class="md-fab md-fab-bottom-right" aria-label="Add Repair" ng-click="addRepair($event)">
+        <ng-md-icon icon="add"></ng-md-icon>
+    </md-button>
+</md-sidenav>

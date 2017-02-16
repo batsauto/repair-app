@@ -1,15 +1,47 @@
-myAppModule.controller("repairsController", function($scope, repairFactory) {
+myAppModule.controller("repairsController", function($scope, $mdSidenav, $mdDialog, $mdMedia, repairFactory, NgMap) {
     $scope.repairs = [];
     $scope.newpartsPerRepair = {};
-    
+    $scope.selected = null;
+    $scope.searchCustomer = "";
+    $scope.tabIndex = 0;
+
+    $scope.toggleSideNav = function() {
+      $mdSidenav("left").toggle();
+    };
+
+    $scope.selectRepair = function (repair) {
+        $scope.selected = repair;
+        repairFactory.selectedRepair = repair;
+        var sidenav = $mdSidenav('left');
+        if (sidenav.isOpen()) {
+            sidenav.close();
+        }
+        $scope.tabIndex = 0;
+    };
 
     repairFactory.getRepairs(function(repairs) {
         $scope.repairs = repairs;
+        $scope.selected = repairs[0];
+        repairFactory.selectedUser = $scope.selected;
+        console.log(repairs);
     });
 
-    $scope.addRepair = function() {
-        repairFactory.addRepair($scope.newRepair);
-        $scope.newRepair = {};
+    $scope.addRepair = function($event) {
+        var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
+        $mdDialog.show( {
+            templateUrl: './static/partials/newRepairDialog.html',
+            parent: angular.element(document.body),
+            targetEvent: $event,
+            controller: "addUserDialogController",
+            clickOutsideToClose: true,
+            fullscreen: useFullScreen
+        }).then(function () {
+            repairFactory.addRepair($scope.newRepair);
+            $scope.selectRepair($scope.newRepair);
+            $scope.newRepair = {};
+        }, function() {
+            console.log("You Cancelled the Dialog");
+        });
     };
 
     $scope.editRepair = function() {
@@ -28,4 +60,10 @@ myAppModule.controller("repairsController", function($scope, repairFactory) {
     $scope.removePartsPerRepair = function($index) {
       repairFactory.removePartsPerRepair($index);
     };
+
+    NgMap.getMap().then(function(map) {
+        console.log(map.getCenter());
+        console.log('markers', map.markers);
+        console.log('shapes', map.shapes);
+    });
 });

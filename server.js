@@ -1,5 +1,5 @@
 var express  = require( 'express' ),
-    bp       = require('body-parser'),
+    bp       = require('body-parser' ),
     path     = require( 'path' ),
     root     = __dirname,
     port     = process.env.PORT || 8000,

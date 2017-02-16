@@ -1,0 +1,33 @@
+<div class="md-padding" layout="row" layout-xs="column">
+    <div layout="column" flex="50" flex-xs="100">
+        <div class="md-padding" flex>
+            <div layout="row">
+                <div flex="30"><span class="infoContent">Quantity</span></div>
+                <div flex><span class="infoContent">Parts</span></div>
+            </div>
+
+        </div>
+        <md-card class="md-padding" flex ng-repeat="partsPerRepair in selected.partsPerRepair">
+            <div layout="row">
+                <div flex="30"><span>{{partsPerRepair.quantity}}</span></div>
+                <div flex><span>{{partsPerRepair.part}}</span></div>
+            </div>
+
+        </md-card>
+    </div>
+    <div layout="column" class="md-padding" flex>
+        <div layout="row">
+            <span class="infoContent" flex="33">Number of Workers</span>
+            <span class="infoContent" flex="33">Number of Hours</span>
+            <span class="infoContent" flex="33">Total Man Hours</span>
+        </div>
+
+        <div layout="row" class="md-padding">
+            <span class="" flex="33">{{selected.numWorkers}}</span>
+            <span class="" flex="33">{{selected.numHours}}</span>
+            <span class="md-body-2" flex="33">{{selected.numWorkers * selected.numHours}}</span>
+        </div>
+
+
+    </div>
+</div>

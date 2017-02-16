@@ -1,15 +1,8 @@
-var myAppModule = angular.module("myApp", ["ngRoute", "vsGoogleAutocomplete", "ngMaterial", "angular.filter", "ngAnimate"]);
+var myAppModule = angular.module("myApp", ["ngRoute", "vsGoogleAutocomplete", "ngMaterial", "angular.filter", "ngAnimate", "ngMdIcons", "ngAvatar", "ngMap"]);
 
-// This config is so the datepicker directive can work with this version of anuglar
-myAppModule.config(function($compileProvider) {
-    $compileProvider.preAssignBindingsEnabled(true);
-  });
-
-
-// myAppModule.config(function($mdThemingProvider) {
-//   $mdThemingProvider.theme('default')
-//     .primaryPalette('blue')
-//     .accentPalette('teal')
-//     .warnPalette('red')
-//     .backgroundPalette('grey');
-// });
+myAppModule.config(function($mdThemingProvider) {
+  $mdThemingProvider.theme('default')
+    .primaryPalette('blue-grey')
+    .accentPalette('red')
+    .warnPalette('deep-orange')
+});
