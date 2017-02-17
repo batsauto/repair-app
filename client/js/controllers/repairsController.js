@@ -22,17 +22,19 @@ myAppModule.controller("repairsController", function($scope, $mdSidenav, $mdDial
     repairFactory.getRepairs(function(repairs) {
         $scope.repairs = repairs;
         $scope.selected = repairs[0];
-        repairFactory.selectedUser = $scope.selected;
+        repairFactory.selectedRepair = $scope.selected;
         console.log(repairs);
     });
 
     $scope.addRepair = function($event) {
         var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
         $mdDialog.show( {
+            // scope: $scope,
+            // preserveScope: true,
             templateUrl: './static/partials/newRepairDialog.html',
             parent: angular.element(document.body),
             targetEvent: $event,
-            controller: "addUserDialogController",
+            controller: "addRepairDialogController",
             clickOutsideToClose: true,
             fullscreen: useFullScreen
         }).then(function () {
@@ -44,8 +46,25 @@ myAppModule.controller("repairsController", function($scope, $mdSidenav, $mdDial
         });
     };
 
-    $scope.editRepair = function() {
-        repairFactory.editRepair();
+    $scope.editRepair = function($event) {
+        var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
+        $mdDialog.show( {
+            scope: $scope,
+            preserveScope: true,
+            templateUrl: './static/partials/editRepairDialog.html',
+            parent: angular.element(document.body),
+            targetEvent: $event,
+            controller: "editRepairDialogController",
+            clickOutsideToClose: true,
+            bindToController: true,
+            fullscreen: useFullScreen
+        }).then(function () {
+            repairFactory.editRepair();
+            $scope.selectRepair($scope.selected);
+            $mdDialog.cancel();
+        }, function() {
+            console.log("You Cancelled the Dialog");
+        });
     };
 
     $scope.removeRepair = function($index) {

@@ -5,7 +5,7 @@ myAppModule.controller("fieldController", function($scope, repairFactory, partFa
 
     repairFactory.getRepairs(function(repairs) {
       $scope.repairs = repairs;
-    })
+    });
 
     $scope.editRepair= function() {
       repairFactory.editRepair();

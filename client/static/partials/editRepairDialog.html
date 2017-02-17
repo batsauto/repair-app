@@ -1,69 +1,68 @@
 <md-dialog flex="60">
     <md-toolbar>
         <div class="md-toolbar-tools" layout="row">
-            <h3 flex>New Repair Form</h3>
+            <h3 flex>Edit Repair Form</h3>
             <md-button class="md-icon-button" ng-click="cancel()">
                 <ng-md-icon icon="close" aria-label="Close dialog"></ng-md-icon>
             </md-button>
         </div>
     </md-toolbar>
     <md-dialog-content>
-        <form name="repairForm" class="md-padding">
-
+        <form name="editRepairForm" class="md-padding">
             <div layout="row" flex>
                 <!--<md-input-container class="md-block" flex-gt-xs>-->
-                    <!--<label>Company</label>-->
-                    <!--<input ng-model="newRepair.company">-->
+                <!--<label>Company</label>-->
+                <!--<input ng-model="selected.company">-->
                 <!--</md-input-container>-->
 
                 <md-input-container class="md-block" flex>
                     <label>Enter date</label>
-                    <md-datepicker ng-model="newRepair.date" md-open-on-focus></md-datepicker>
+                    <md-datepicker ng-model="selected.date" md-open-on-focus></md-datepicker>
                 </md-input-container>
 
                 <md-input-container class="md-block" flex flex-gt-sm="35">
                     <label>Time</label>
-                    <input type="time" ng-model="newRepair.date">
+                    <input type="time" ng-model="selected.date">
                 </md-input-container>
             </div>
 
             <div layout-gt-sm="row">
                 <md-input-container class="md-block" flex-gt-sm>
                     <label>First name</label>
-                    <input ng-model="newRepair.firstName">
+                    <input ng-model="selected.firstName">
                 </md-input-container>
 
                 <md-input-container class="md-block" flex-gt-sm>
                     <label>Last name</label>
-                    <input ng-model="newRepair.lastName">
+                    <input ng-model="selected.lastName">
                 </md-input-container>
             </div>
 
             <md-input-container class="md-block">
                 <label>Address</label>
-                <input vs-google-autocomplete="{ types: ['address'] }" placeholder="" ng-model="newRepair.address">
+                <input vs-google-autocomplete="{ types: ['address'] }" placeholder="" ng-model="selected.address">
             </md-input-container>
 
             <div layout-gt-sm="row">
                 <md-input-container class="md-block" flex-gt-sm>
                     <label>Cell Phone</label>
-                    <input ng-model="newRepair.phoneCell">
+                    <input ng-model="selected.phoneCell">
                 </md-input-container>
                 <md-input-container class="md-block" flex-gt-sm>
                     <label>Email</label>
-                    <input ng-model="newRepair.email">
+                    <input ng-model="selected.email">
                 </md-input-container>
             </div>
 
             <md-input-container class="md-block">
                 <label>Customer Description</label>
-                <textarea ng-model="newRepair.description" md-maxlength="400" rows="4"
+                <textarea ng-model="selected.description" md-maxlength="400" rows="4"
                           md-select-on-focus></textarea>
             </md-input-container>
         </form>
     </md-dialog-content>
     <md-dialog-actions layout="row">
         <span flex></span>
-        <md-button class="md-raised" ng-click="addRepair()">Add Repair</md-button>
+        <md-button class="md-raised" ng-click="editRepair()">Save Repair</md-button>
     </md-dialog-actions>
 </md-dialog>
