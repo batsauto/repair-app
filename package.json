@@ -1,18 +1,18 @@
 {
-  "name": "repair-app",
+  "name": "Full-Stack-Repair-App",
   "version": "1.0.0",
   "main": "(server.js)",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/batsauto/repair-app.git"
+    "url": "https://github.com/barrowsinc/Full-Stack-Repair-App.git"
   },
-  "author": "batsauto <cfbarrow@gmail.com>",
+  "author": "Christain Barrow <cfbarrow@gmail.com>",
   "license": "MIT",
   "description": "This is a Repair App that my family could use for their landscape business",
   "bugs": {
-    "url": "https://github.com/batsauto/repair-app/issues"
+    "url": "https://github.com/barrowsinc/Full-Stack-Repair-App/issues"
   },
-  "homepage": "https://github.com/batsauto/repair-app#readme",
+  "homepage": "https://github.com/barrowsinc/Full-Stack-Repair-App/blob/master/README.md",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -28,9 +28,9 @@
     "angular-route": "^1.6.1",
     "body-parser": "^1.15.2",
     "express": "^4.14.0",
+    "mongodb": "^2.2.24",
+    "mongoose": "^4.8.3",
     "ngmap": "^1.18.0"
   },
-  "devDependencies": {
-    "reload": "^1.1.1"
-  }
+  "devDependencies": {}
 }
