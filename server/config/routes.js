@@ -11,7 +11,7 @@ module.exports = function (app) {
     app.post('/repairs', Repair.create);
     app.delete('/repairs/:id', Repair.delete);
     app.put('/repairs/:id', Repair.update);
-    // TEAMS
+    // Parts
     app.get('/parts', Part.index);
     app.post('/parts', Part.create);
     app.delete('/parts/:id', Part.delete);

@@ -1,5 +1,10 @@
 var myAppModule = angular.module("myApp", ["ngRoute", "vsGoogleAutocomplete", "ngMaterial", "angular.filter", "ngAnimate", "ngMdIcons", "ngAvatar", "ngMap"]);
 
+// myAppModule.config(['$qProvider', function ($qProvider) {
+//     $qProvider.errorOnUnhandledRejections(false);
+// }]);
+
+
 myAppModule.config(function ($mdThemingProvider) {
     $mdThemingProvider.theme('default')
         .primaryPalette('blue-grey')

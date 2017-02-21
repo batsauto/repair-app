@@ -1,9 +1,24 @@
-myAppModule.controller("repairsController", function($scope, $mdSidenav, $mdDialog, $mdMedia, repairFactory, NgMap) {
-    $scope.repairs = [];
-    $scope.newpartsPerRepair = {};
+myAppModule.controller("repairsController", ['$scope', '$mdSidenav', '$mdDialog', '$mdMedia', 'repairFactory', 'NgMap', function($scope, $mdSidenav, $mdDialog, $mdMedia, repairFactory, NgMap) {
+
+    // $scope.repairs = [];
+
+    fetchRepairs();
+
+    // $scope.newpartsPerRepair = {};
     $scope.selected = null;
     $scope.searchCustomer = "";
     $scope.tabIndex = 0;
+
+    function fetchRepairs() {
+        repairFactory.getRepairs().then(function (repairs) {
+            $scope.repairs = repairs;
+            $scope.repairs.date = new Date($scope.repairs.date);
+            $scope.selected = repairs[0];
+            repairFactory.selectedRepair = $scope.selected;
+            console.log(repairs);
+        });
+
+    };
 
     $scope.toggleSideNav = function() {
       $mdSidenav("left").toggle();
@@ -19,12 +34,12 @@ myAppModule.controller("repairsController", function($scope, $mdSidenav, $mdDial
         $scope.tabIndex = 0;
     };
 
-    repairFactory.getRepairs(function(repairs) {
-        $scope.repairs = repairs;
-        $scope.selected = repairs[0];
-        repairFactory.selectedRepair = $scope.selected;
-        console.log(repairs);
-    });
+    // repairFactory.getRepairs(function(repairs) {
+    //     $scope.repairs = repairs;
+    //     $scope.selected = repairs[0];
+    //     repairFactory.selectedRepair = $scope.selected;
+    //     console.log(repairs);
+    // });
 
     $scope.addRepair = function($event) {
         var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
@@ -38,9 +53,10 @@ myAppModule.controller("repairsController", function($scope, $mdSidenav, $mdDial
             clickOutsideToClose: true,
             fullscreen: useFullScreen
         }).then(function () {
-            repairFactory.addRepair($scope.newRepair);
+            // repairFactory.addRepair($scope.newRepair);
             $scope.selectRepair($scope.newRepair);
             $scope.newRepair = {};
+            fetchRepairs();
         }, function() {
             console.log("You Cancelled the Dialog");
         });
@@ -59,16 +75,19 @@ myAppModule.controller("repairsController", function($scope, $mdSidenav, $mdDial
             bindToController: true,
             fullscreen: useFullScreen
         }).then(function () {
-            repairFactory.editRepair();
+            // repairFactory.editRepair();
             $scope.selectRepair($scope.selected);
-            $mdDialog.cancel();
+            // $mdDialog.hide();
         }, function() {
             console.log("You Cancelled the Dialog");
         });
     };
 
-    $scope.removeRepair = function($index) {
-        repairFactory.removeRepair($index);
+    $scope.removeRepair = function(repairId) {
+        repairFactory.removeRepair(repairId)
+        .then(function () {
+            $scope.selected = repair
+        })
     };
 
     $scope.addPartsPerRepair = function(index) {
@@ -81,8 +100,8 @@ myAppModule.controller("repairsController", function($scope, $mdSidenav, $mdDial
     };
 
     NgMap.getMap().then(function(map) {
-        console.log(map.getCenter());
-        console.log('markers', map.markers);
-        console.log('shapes', map.shapes);
+        // console.log(map.getCenter());
+        // console.log('markers', map.markers);
+        // console.log('shapes', map.shapes);
     });
-});
+}]);

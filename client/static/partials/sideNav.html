@@ -27,7 +27,7 @@
         <md-list class="">
             <md-list-item ng-repeat="repair in repairs | filter: searchRepair | orderBy: 'date'">
                 <md-button ng-click="selectRepair(repair)" ng-class="{'selected': repair === selected}">
-                    <ng-avatar class="avatar" bg-color="#616161" initials="{{repair.avatarInital}}"
+                    <ng-avatar class="avatar" bg-color="#616161" initials="{{repair.avatarInitial}}"
                                round-shape="true"></ng-avatar>
                     <div class="repairNameButton" flex>
                     {{repair.firstName}} {{repair.lastName}}

@@ -7,7 +7,7 @@ module.exports = {
     index: function (req, res) {
         Repair.find({})
             .populate('_part')
-            .exec(function (err, players) {
+            .exec(function (err, repairs) {
                 if (err) {
                     console.log(err);
                     res.status(500);
@@ -51,4 +51,4 @@ module.exports = {
                 res.json(err);
             });
     },
-}
+};
