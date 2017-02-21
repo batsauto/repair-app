@@ -1,13 +1,13 @@
-myAppModule.controller("editRepairDialogController", function($scope, $mdDialog, repairFactory) {
+myAppModule.controller("editRepairDialogController", [ '$scope', '$mdDialog', 'repairFactory', function($scope, $mdDialog, repairFactory) {
     $scope.cancel = function() {
         $mdDialog.cancel();
     };
     $scope.hide = function() {
         $mdDialog.hide();
     };
-    $scope.editRepair = function() {
-        repairFactory.editRepair();
+    $scope.editRepair = function(repair) {
+        repairFactory.updateRepair(repair);
         $scope.selectRepair($scope.selected);
         $mdDialog.hide()
     };
-});
+}]);

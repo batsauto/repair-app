@@ -12,7 +12,9 @@ myAppModule.controller("repairsController", ['$scope', '$mdSidenav', '$mdDialog'
     function fetchRepairs() {
         repairFactory.getRepairs().then(function (repairs) {
             $scope.repairs = repairs;
-            $scope.repairs.date = new Date($scope.repairs.date);
+            for (i = 0; i < $scope.repairs.length; i++) {
+                $scope.repairs[i].date = new Date($scope.repairs[i].date);
+            }
             $scope.selected = repairs[0];
             repairFactory.selectedRepair = $scope.selected;
             console.log(repairs);
@@ -76,17 +78,19 @@ myAppModule.controller("repairsController", ['$scope', '$mdSidenav', '$mdDialog'
             fullscreen: useFullScreen
         }).then(function () {
             // repairFactory.editRepair();
-            $scope.selectRepair($scope.selected);
+            // $scope.selectRepair($scope.selected);
             // $mdDialog.hide();
+            fetchRepairs();
         }, function() {
             console.log("You Cancelled the Dialog");
         });
     };
 
-    $scope.removeRepair = function(repairId) {
-        repairFactory.removeRepair(repairId)
+    $scope.removeRepair = function(repair) {
+        repairFactory.deleteRepair(repair)
         .then(function () {
-            $scope.selected = repair
+            fetchRepairs();
+            $scope.selected = repair[0];
         })
     };
 

@@ -6,8 +6,8 @@ myAppModule.factory("repairFactory", function($http) {
 
     factory.getRepairs = getRepairs;
     factory.addRepair = addRepair;
-    factory.DeleteRepair = DeleteRepair;
-    factory.UpdateRepair = UpdateRepair;
+    factory.deleteRepair = deleteRepair;
+    factory.updateRepair = updateRepair;
 
     return factory;
 
@@ -19,11 +19,11 @@ myAppModule.factory("repairFactory", function($http) {
         newRepair.fullName = newRepair.firstName + " " + newRepair.lastName;
         return $http.post('/repairs', newRepair).then(handleSuccess, handleError("Error adding new repair"));
     }
-    function DeleteRepair(id){
+    function deleteRepair(id){
         return $http.delete('/repairs/'+ id).then(handleSuccess, handleError("Error deleting repair"));
     }
-    function UpdateRepair(repair){
-        return $http.put('/repairs/' + repair.id, repair).then(handleSuccess, handleError("Error updating repair"));
+    function updateRepair(repair){
+        return $http.put('/repairs/' + repair._id, repair).then(handleSuccess, handleError("Error updating repair"));
     }
     function handleSuccess(res) {
         return res.data;
