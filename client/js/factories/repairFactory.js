@@ -22,8 +22,8 @@ myAppModule.factory("repairFactory", function($http) {
     function deleteRepair(id){
         return $http.delete('/repairs/'+ id).then(handleSuccess, handleError("Error deleting repair"));
     }
-    function updateRepair(repair){
-        return $http.put('/repairs/' + repair._id, repair).then(handleSuccess, handleError("Error updating repair"));
+    function updateRepair(selected){
+        return $http.put('/repairs/'+ selected._id).then(handleSuccess, handleError("Error updating repair"));
     }
     function handleSuccess(res) {
         return res.data;

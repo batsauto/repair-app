@@ -5,9 +5,11 @@ myAppModule.controller("editRepairDialogController", [ '$scope', '$mdDialog', 'r
     $scope.hide = function() {
         $mdDialog.hide();
     };
-    $scope.editRepair = function(repair) {
-        repairFactory.updateRepair(repair);
+    $scope.editRepair = function() {
+        console.log($scope.selected);
+        repairFactory.updateRepair($scope.selected);
         $scope.selectRepair($scope.selected);
-        $mdDialog.hide()
+        $mdDialog.hide();
+        console.log("We are at the end of the edit function");
     };
 }]);

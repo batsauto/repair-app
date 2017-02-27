@@ -72,12 +72,11 @@ myAppModule.controller("repairsController", ['$scope', '$mdSidenav', '$mdDialog'
             templateUrl: './static/partials/editRepairDialog.html',
             parent: angular.element(document.body),
             targetEvent: $event,
-            controller: "editRepairDialogController",
+            controller: 'editRepairDialogController',
             clickOutsideToClose: true,
-            bindToController: true,
             fullscreen: useFullScreen
         }).then(function () {
-            // repairFactory.editRepair();
+            // repairFactory.updateRepair($scope.selected);
             // $scope.selectRepair($scope.selected);
             // $mdDialog.hide();
             fetchRepairs();
@@ -90,7 +89,7 @@ myAppModule.controller("repairsController", ['$scope', '$mdSidenav', '$mdDialog'
         repairFactory.deleteRepair(repair)
         .then(function () {
             fetchRepairs();
-            $scope.selected = repair[0];
+            // $scope.selected = repair[0];
         })
     };
 
