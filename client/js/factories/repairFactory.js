@@ -19,8 +19,8 @@ myAppModule.factory("repairFactory", function($http) {
         newRepair.fullName = newRepair.firstName + " " + newRepair.lastName;
         return $http.post('/repairs', newRepair).then(handleSuccess, handleError("Error adding new repair"));
     }
-    function deleteRepair(id){
-        return $http.delete('/repairs/'+ id).then(handleSuccess, handleError("Error deleting repair"));
+    function deleteRepair(selected){
+        return $http.delete('/repairs/'+ selected._id).then(handleSuccess, handleError("Error deleting repair"));
     }
     function updateRepair(selected){
         selected.avatarInitial = selected.firstName.charAt(0).toUpperCase() + selected.lastName.charAt(0).toUpperCase();

@@ -73,8 +73,8 @@ myAppModule.controller("repairsController", ['$scope', '$mdSidenav', '$mdDialog'
         });
     };
 
-    $scope.removeRepair = function(repair) {
-        repairFactory.deleteRepair(repair)
+    $scope.removeRepair = function() {
+        repairFactory.deleteRepair($scope.selected)
         .then(function () {
             fetchRepairs();
             // $scope.selected = repair[0];
