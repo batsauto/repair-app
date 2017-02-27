@@ -36,18 +36,9 @@ myAppModule.controller("repairsController", ['$scope', '$mdSidenav', '$mdDialog'
         $scope.tabIndex = 0;
     };
 
-    // repairFactory.getRepairs(function(repairs) {
-    //     $scope.repairs = repairs;
-    //     $scope.selected = repairs[0];
-    //     repairFactory.selectedRepair = $scope.selected;
-    //     console.log(repairs);
-    // });
-
     $scope.addRepair = function($event) {
         var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
         $mdDialog.show( {
-            // scope: $scope,
-            // preserveScope: true,
             templateUrl: './static/partials/newRepairDialog.html',
             parent: angular.element(document.body),
             targetEvent: $event,
@@ -55,7 +46,6 @@ myAppModule.controller("repairsController", ['$scope', '$mdSidenav', '$mdDialog'
             clickOutsideToClose: true,
             fullscreen: useFullScreen
         }).then(function () {
-            // repairFactory.addRepair($scope.newRepair);
             $scope.selectRepair($scope.newRepair);
             $scope.newRepair = {};
             fetchRepairs();
@@ -76,9 +66,6 @@ myAppModule.controller("repairsController", ['$scope', '$mdSidenav', '$mdDialog'
             clickOutsideToClose: true,
             fullscreen: useFullScreen
         }).then(function () {
-            // repairFactory.updateRepair($scope.selected);
-            // $scope.selectRepair($scope.selected);
-            // $mdDialog.hide();
             fetchRepairs();
         }, function() {
             fetchRepairs();
@@ -104,8 +91,5 @@ myAppModule.controller("repairsController", ['$scope', '$mdSidenav', '$mdDialog'
     };
 
     NgMap.getMap().then(function(map) {
-        // console.log(map.getCenter());
-        // console.log('markers', map.markers);
-        // console.log('shapes', map.shapes);
     });
 }]);

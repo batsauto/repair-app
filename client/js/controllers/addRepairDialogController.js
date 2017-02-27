@@ -7,8 +7,6 @@ myAppModule.controller("addRepairDialogController", [ '$scope', '$mdDialog', 're
     };
     $scope.addRepair = function() {
         repairFactory.addRepair($scope.newRepair);
-        // $scope.selectRepair($scope.newRepair);
-        // $scope.newRepair = {};
         $mdDialog.hide()
     };
 }]);
