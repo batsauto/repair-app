@@ -67,7 +67,7 @@ myAppModule.controller("repairsController", ['$scope', '$mdSidenav', '$mdDialog'
     $scope.editRepair = function($event) {
         var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
         $mdDialog.show( {
-            scope: $scope,
+            scope: $scope.$new(),
             preserveScope: true,
             templateUrl: './static/partials/editRepairDialog.html',
             parent: angular.element(document.body),
@@ -81,6 +81,7 @@ myAppModule.controller("repairsController", ['$scope', '$mdSidenav', '$mdDialog'
             // $mdDialog.hide();
             fetchRepairs();
         }, function() {
+            fetchRepairs();
             console.log("You Cancelled the Dialog");
         });
     };

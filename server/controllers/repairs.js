@@ -41,7 +41,7 @@ module.exports = {
             });
     },
     update: function (req, res) {
-        Repair.findByIdAndUpdate(req.params.id, {$set: req.body})
+        Repair.findByIdAndUpdate({_id: req.params.id}, req.body)
             .then(function () {
                 res.json(true);
             })
