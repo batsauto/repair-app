@@ -8,6 +8,8 @@ myAppModule.factory("repairFactory", function($http) {
     factory.addRepair = addRepair;
     factory.deleteRepair = deleteRepair;
     factory.updateRepair = updateRepair;
+    factory.addPartsPerRepair = addPartsPerRepair;
+    factory.removePartsPerRepair = removePartsPerRepair;
 
     return factory;
 
@@ -37,6 +39,13 @@ myAppModule.factory("repairFactory", function($http) {
         };
     }
 
+    function addPartsPerRepair (selected, newPartsPerRepair) {
+        return $http.put('/repairs/' + selected._id, newPartsPerRepair).then(handleSuccess, handleError("Error updating parts in repair"))
+    }
+
+    function removePartsPerRepair () {
+
+    }
 
     // factory.getRepairs = function(callback) {
     //     callback(repairs);
@@ -56,11 +65,5 @@ myAppModule.factory("repairFactory", function($http) {
     //     selectedRepair = repair;
     // };
     //
-    // factory.addPartsPerRepair = function(newPartsPerRepair, index) {
-    //     repairs[index].partsPerRepair.push(newPartsPerRepair);
-    // };
-    //
-    // factory.removePartsPerRepair = function($index) {
-    //     repairs[$index].partsPerRepairs.splice($index, 1);
-    // };
+
 });

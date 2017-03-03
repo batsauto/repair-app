@@ -8,58 +8,108 @@
         </div>
     </md-toolbar>
     <md-dialog-content>
-        <form name="editRepairForm" class="md-padding">
-            <div layout="row" flex>
-                <!--<md-input-container class="md-block" flex-gt-xs>-->
-                <!--<label>Company</label>-->
-                <!--<input ng-model="selected.company">-->
-                <!--</md-input-container>-->
+        <md-tabs class="md-padding" md-dynamic-height md-stretch-tabs="always">
+            <md-tab label="Info">
+                <form name="editRepairForm" class="md-padding">
+                    <div layout="row" flex>
+                        <!--<md-input-container class="md-block" flex-gt-xs>-->
+                        <!--<label>Company</label>-->
+                        <!--<input ng-model="selected.company">-->
+                        <!--</md-input-container>-->
 
-                <md-input-container class="md-block" flex>
-                    <label>Enter date</label>
-                    <md-datepicker ng-model="selected.date" md-open-on-focus></md-datepicker>
-                </md-input-container>
+                        <md-input-container class="md-block" flex>
+                            <label>Enter date</label>
+                            <md-datepicker ng-model="selected.date" md-open-on-focus></md-datepicker>
+                        </md-input-container>
 
-                <md-input-container class="md-block" flex flex-gt-sm="35">
-                    <label>Time</label>
-                    <input type="time" ng-model="selected.date">
-                </md-input-container>
-            </div>
+                        <md-input-container class="md-block" flex flex-gt-sm="35">
+                            <label>Time</label>
+                            <input type="time" ng-model="selected.date">
+                        </md-input-container>
+                    </div>
 
-            <div layout-gt-sm="row">
-                <md-input-container class="md-block" flex-gt-sm>
-                    <label>First name</label>
-                    <input ng-model="selected.firstName">
-                </md-input-container>
+                    <div layout-gt-sm="row">
+                        <md-input-container class="md-block" flex-gt-sm>
+                            <label>First name</label>
+                            <input ng-model="selected.firstName">
+                        </md-input-container>
 
-                <md-input-container class="md-block" flex-gt-sm>
-                    <label>Last name</label>
-                    <input ng-model="selected.lastName">
-                </md-input-container>
-            </div>
+                        <md-input-container class="md-block" flex-gt-sm>
+                            <label>Last name</label>
+                            <input ng-model="selected.lastName">
+                        </md-input-container>
+                    </div>
 
-            <md-input-container class="md-block">
-                <label>Address</label>
-                <input vs-google-autocomplete="{ types: ['address'] }" placeholder="" ng-model="selected.address">
-            </md-input-container>
+                    <md-input-container class="md-block">
+                        <label>Address</label>
+                        <input vs-google-autocomplete="{ types: ['address'] }" placeholder=""
+                               ng-model="selected.address">
+                    </md-input-container>
 
-            <div layout-gt-sm="row">
-                <md-input-container class="md-block" flex-gt-sm>
-                    <label>Cell Phone</label>
-                    <input ng-model="selected.phoneCell">
-                </md-input-container>
-                <md-input-container class="md-block" flex-gt-sm>
-                    <label>Email</label>
-                    <input ng-model="selected.email">
-                </md-input-container>
-            </div>
+                    <div layout-gt-sm="row">
+                        <md-input-container class="md-block" flex-gt-sm>
+                            <label>Cell Phone</label>
+                            <input ng-model="selected.phoneCell">
+                        </md-input-container>
+                        <md-input-container class="md-block" flex-gt-sm>
+                            <label>Email</label>
+                            <input ng-model="selected.email">
+                        </md-input-container>
+                    </div>
 
-            <md-input-container class="md-block">
-                <label>Customer Description</label>
-                <textarea ng-model="selected.description" md-maxlength="400" rows="4"
-                          md-select-on-focus></textarea>
-            </md-input-container>
-        </form>
+                    <md-input-container class="md-block">
+                        <label>Customer Description</label>
+                        <textarea ng-model="selected.description" md-maxlength="400" rows="4"
+                                  md-select-on-focus></textarea>
+                    </md-input-container>
+                </form>
+            </md-tab>
+            <md-tab label="Billing">
+                <form name="editRepairForm" class="md-padding">
+                    <div layout-gt-sm="row">
+                        <md-input-container class="md-block" flex="15">
+                            <label>Qty.</label>
+                            <input ng-model="selected.newPartsPerRepair.quantity">
+                        </md-input-container>
+
+                        <md-input-container class="md-block" flex="40">
+                            <label>Repair Parts</label>
+                            <md-select ng-model="selected.newPartsPerRepair.part">
+                                <md-option ng-value="part.name" ng-repeat="part in parts">{{part.name}}</md-option>
+                            </md-select>
+                        </md-input-container>
+                        <md-button class="md-raised" ng-click="addPartsToRepair()">Add Part</md-button>
+                    </div>
+                    <table class="md-padding md-whiteframe-2dp">
+                        <thead>
+                        <tr >
+                            <th><span>Quantity</span></th>
+                            <th><span>Item Descritpion</span></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="part in selected.partsPerRepair">
+                            <td>{{selected.partsPerRepair.quantity}}</td>
+                            <td>{{selected.partsPerRepair.part}}</td>
+                            <td>
+                                <div md-button class="md-raised" ng-click="removePartsPerRepair()">Delete Part</div>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <div layout-gt-sm="row">
+                        <md-input-container class="md-block" flex="40">
+                            <label>Number of Workers</label>
+                            <input ng-model="selected.numWorkers">
+                        </md-input-container>
+                        <md-input-container class="md-block" flex="40">
+                            <label>Number of Hours</label>
+                            <input ng-model="selected.numHours">
+                        </md-input-container>
+                    </div>
+                </form>
+            </md-tab>
+        </md-tabs>
     </md-dialog-content>
     <md-dialog-actions layout="row">
         <span flex></span>

@@ -1,8 +1,9 @@
-myAppModule.controller("repairsController", ['$scope', '$mdSidenav', '$mdDialog', '$mdMedia', 'repairFactory', 'NgMap', function($scope, $mdSidenav, $mdDialog, $mdMedia, repairFactory, NgMap) {
+myAppModule.controller("repairsController", ['$scope', '$mdSidenav', '$mdDialog', '$mdMedia', 'repairFactory', 'partFactory', 'NgMap', function($scope, $mdSidenav, $mdDialog, $mdMedia, repairFactory, partFactory, NgMap) {
 
     // $scope.repairs = [];
 
     fetchRepairs();
+    fetchParts();
 
     // $scope.newpartsPerRepair = {};
     $scope.selected = null;
@@ -20,7 +21,14 @@ myAppModule.controller("repairsController", ['$scope', '$mdSidenav', '$mdDialog'
             console.log(repairs);
         });
 
-    };
+    }
+
+    function fetchParts() {
+        partFactory.getParts().then(function (parts) {
+            $scope.parts = parts;
+            console.log(parts);
+        });
+    }
 
     $scope.toggleSideNav = function() {
       $mdSidenav("left").toggle();
@@ -81,9 +89,20 @@ myAppModule.controller("repairsController", ['$scope', '$mdSidenav', '$mdDialog'
         })
     };
 
-    $scope.addPartsPerRepair = function(index) {
-        repairFactory.addPartsPerRepair($scope.newPartsPerRepair, index);
-        $scope.newPartsPerRepair = {};
+    $scope.deleteRepairDialog = function($event) {
+        var confirm = $mdDialog.confirm()
+            .title("Are you sure you want to delete " + $scope.selected.fullName)
+            .textContent("This action can not be undone!")
+            .ariaLabel("Confirm Delete Repair")
+            .targetEvent($event)
+            .ok("Delete Repair")
+            .cancel("Cancel");
+
+        $mdDialog.show(confirm).then(function () {
+            $scope.removeRepair();
+        }, function () {
+            console.log("You cancelled the Delete Dialog");
+        });
     };
 
     $scope.removePartsPerRepair = function($index) {
