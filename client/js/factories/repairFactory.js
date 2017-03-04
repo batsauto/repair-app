@@ -27,7 +27,7 @@ myAppModule.factory("repairFactory", function($http) {
     function updateRepair(selected){
         selected.avatarInitial = selected.firstName.charAt(0).toUpperCase() + selected.lastName.charAt(0).toUpperCase();
         selected.fullName = selected.firstName + " " + selected.lastName;
-        return $http.put('/repairs/'+ selected._id, selected).then(handleSuccess, handleError("Error updating repair"));
+        return $http.put('/repairs/' + selected._id, selected).then(handleSuccess, handleError("Error updating repair"));
     }
     function handleSuccess(res) {
         return res.data;
@@ -40,7 +40,7 @@ myAppModule.factory("repairFactory", function($http) {
     }
 
     function addPartsPerRepair (selected, newPartsPerRepair) {
-        return $http.put('/repairs/' + selected._id, newPartsPerRepair).then(handleSuccess, handleError("Error updating parts in repair"))
+        return $http.put('/repairs/partsPerRepair/' + selected._id, newPartsPerRepair).then(handleSuccess, handleError("Error updating parts in repair"))
     }
 
     function removePartsPerRepair () {

@@ -40,18 +40,18 @@ module.exports = {
     },
     assoc: function (req, res) {
         Part.findOne({
-            _id: req.body.team
-        }, function (err, team) {
+            _id: req.body.part
+        }, function (err, part) {
             Repair.findOne({
                 _id: req.body.repair
             }, function (err, repair) {
-                team._repair.push(repair);
-                repair._part = team._id;
-                team.save(function (err) {
+                part._repair.push(repair);
+                repair._part = part._id;
+                part.save(function (err) {
                     if (err) {
                         console.log(err);
                     }
-                })
+                });
                 repair.save(function (err) {
                     if (err) {
                         console.log(err);

@@ -51,4 +51,15 @@ module.exports = {
                 res.json(err);
             });
     },
+    addPart: function (req, res) {
+        Repair.findByIdAndUpdate({_id: req.params.id}, {partsPerRepair: req.body})
+            .then(function () {
+                res.json(true);
+            })
+            .catch(function (err) {
+                console.log(err);
+                res.status(500);
+                res.json(err);
+            });
+    },
 };

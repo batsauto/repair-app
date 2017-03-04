@@ -15,7 +15,7 @@ var RepairSchema = new Schema({
     avatarInitial: {type: String },
     numWorkers: {type: Number },
     numHours: {type: Number },
-    partsPerRepair: [{ quantity: Number, part: String }],
+    partsPerRepair: [{ quantity: Number, part: String }]
     //_part: { type: Schema.Types.ObjectId, ref:'Part' }
 }, {timestamps: true});
 
