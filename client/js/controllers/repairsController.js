@@ -49,7 +49,7 @@ myAppModule.controller("repairsController", function($scope, $mdSidenav, $mdDial
     $scope.editRepair = function($event) {
         var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
         $mdDialog.show( {
-            scope: $scope,
+            scope: $scope.$new(),
             preserveScope: true,
             templateUrl: './static/partials/editRepairDialog.html',
             parent: angular.element(document.body),
@@ -61,7 +61,7 @@ myAppModule.controller("repairsController", function($scope, $mdSidenav, $mdDial
         }).then(function () {
             repairFactory.editRepair();
             $scope.selectRepair($scope.selected);
-            $mdDialog.cancel();
+
         }, function() {
             console.log("You Cancelled the Dialog");
         });
