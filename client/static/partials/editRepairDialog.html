@@ -67,7 +67,7 @@
             <md-tab label="Billing">
                 <form name="editRepairForm" class="md-padding">
                     <div layout-gt-sm="row">
-                        <md-input-container class="md-block" flex="15">
+                        <md-input-container class="md-block" flex="10">
                             <label>Qty.</label>
                             <input ng-model="selected.newPartsPerRepair.quantity">
                         </md-input-container>
@@ -78,25 +78,45 @@
                                 <md-option ng-value="part.name" ng-repeat="part in parts">{{part.name}}</md-option>
                             </md-select>
                         </md-input-container>
-                        <md-button class="md-raised" ng-click="addPartsToRepair()">Add Part</md-button>
+                        <md-button class="md-icon-button" ng-click="addPartsToRepair()">
+                            <ng-md-icon icon="add" aria-label="Add Parts To Repair"></ng-md-icon>
+                        </md-button>
+                        <div layout-gt-sm="row" ng-repeat="partsPerRepair in selected.partsPerRepair">
+                            <md-input-container class="md-block" flex="20">
+                                <label>Qty.</label>
+                                <input ng-model="partsPerRepair.quantity">
+                            </md-input-container>
+
+                            <md-input-container class="md-block" flex="70">
+                                <label>Repair Parts</label>
+                                <input ng-model="partsPerRepair.part">
+                            </md-input-container>
+
+                            <md-button class="md-icon-button" ng-click="removePartsPerRepair()">
+                                <ng-md-icon icon="delete" aria-label="Remove Parts From Repair"></ng-md-icon>
+                            </md-button>
+                        </div>
                     </div>
-                    <table class="md-padding md-whiteframe-2dp">
-                        <thead>
-                        <tr >
-                            <th><span>Quantity</span></th>
-                            <th><span>Item Descritpion</span></th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr ng-repeat="partPerRepair in selected.partsPerRepair">
-                            <td>{{partsPerRepair.quantity}}</td>
-                            <td>{{partsPerRepair.part}}</td>
-                            <td>
-                                <div md-button class="md-raised" ng-click="removePartsPerRepair()">Delete Part</div>
-                            </td>
-                        </tr>
-                        </tbody>
-                    </table>
+
+                    <!--<table class="md-padding md-whiteframe-2dp">-->
+                        <!--<thead>-->
+                        <!--<tr >-->
+                            <!--<th><span>Quantity</span></th>-->
+                            <!--<th><span>Item Descritpion</span></th>-->
+                        <!--</tr>-->
+                        <!--</thead>-->
+                        <!--<tbody>-->
+                        <!--<tr ng-repeat="partPerRepair in selected.partsPerRepair">-->
+                            <!--<td>{{partsPerRepair.quantity}}</td>-->
+                            <!--<td>{{partsPerRepair.part}}</td>-->
+                            <!--<td>-->
+                                <!--<md-button ng-click="removePartsPerRepair()">-->
+                                    <!--<ng-md-icon icon="delete" aria-label="Close dialog"></ng-md-icon>-->
+                                <!--</md-button>-->
+                            <!--</td>-->
+                        <!--</tr>-->
+                        <!--</tbody>-->
+                    <!--</table>-->
                     <div layout-gt-sm="row">
                         <md-input-container class="md-block" flex="40">
                             <label>Number of Workers</label>
