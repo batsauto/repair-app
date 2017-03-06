@@ -9,9 +9,9 @@
             <span class="infoTitle"> Cell Phone:</span>
             <p class="infoContent">{{selected.phoneCell}}</p>
             <span class="infoTitle">Email:</span>
-            <a ng-click="sendEmail(selected.email)">
-                <p class="infoContent">{{selected.email}}</p>
-            </a>
+            <p>
+                <a class="infoContent cursorPointer" ng-click="sendEmail(selected.email)">{{selected.email}}</a>
+            </p>
         </div>
 
         <div class="md-padding" flex>
