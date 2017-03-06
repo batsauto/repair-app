@@ -1,9 +1,9 @@
-myAppModule.controller("fieldController", function($scope, repairFactory, partFactory) {
+myAppModule.controller("fieldController", ['$scope', 'repairFactory', 'partFactory', function($scope, repairFactory, partFactory) {
     $scope.repairs = [];
-    $scope.newpartsPerRepair = {};
+    // $scope.newpartsPerRepair = {};
 
 
-    repairFactory.getRepairs(function(repairs) {
+    repairFactory.getRepairs().then(function(repairs) {
       $scope.repairs = repairs;
     });
 
@@ -19,19 +19,15 @@ myAppModule.controller("fieldController", function($scope, repairFactory, partFa
       $scope.parts = parts;
     });
 
-    // partFactory.getPartsPerRepair(function(partsPerRepairs) {
-    //   $scope.partsPerRepairs = partsPerRepairs;
-    // });
-    //
     $scope.addPartsPerRepair = function($index) {
         repairFactory.addPartsPerRepair($scope.newPartsPerRepair, $index);
-        $scope.repair.newPartsPerRepair = {};
+        $scope.newPartsPerRepair = {};
     };
-    //
+
     $scope.removePartsPerRepair = function($index) {
       repairFactory.removePartsPerRepair($index);
     };
 
 
 
-})
+}]);
