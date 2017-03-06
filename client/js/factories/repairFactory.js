@@ -14,7 +14,13 @@ myAppModule.factory("repairFactory", function($http) {
     return factory;
 
     function getRepairs(){
-        return $http.get('/repairs').then(handleSuccess, handleError("Error getting all repairs"));
+        return $http.get('/repairs').then(
+            function(res) {
+                angular.forEach(res.data, function (repair) {
+                    repair.date = new Date(repair.date);
+                });
+                return res.data;
+            }, handleError("Error getting all repairs"));
     }
     function addRepair(newRepair){
         newRepair.avatarInitial = newRepair.firstName.charAt(0).toUpperCase() + newRepair.lastName.charAt(0).toUpperCase();

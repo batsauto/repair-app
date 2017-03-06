@@ -1,21 +1,19 @@
 myAppModule.controller("repairsController", ['$scope', '$mdSidenav', '$mdDialog', '$mdMedia', 'repairFactory', 'partFactory', 'NgMap', function($scope, $mdSidenav, $mdDialog, $mdMedia, repairFactory, partFactory, NgMap) {
 
     // $scope.repairs = [];
+    $scope.selected = null;
+    $scope.searchCustomer = "";
+    $scope.tabIndex = 0;
 
     fetchRepairs();
     fetchParts();
 
     // $scope.newpartsPerRepair = {};
-    $scope.selected = null;
-    $scope.searchCustomer = "";
-    $scope.tabIndex = 0;
+
 
     function fetchRepairs() {
         repairFactory.getRepairs().then(function (repairs) {
             $scope.repairs = repairs;
-            for (i = 0; i < $scope.repairs.length; i++) {
-                $scope.repairs[i].date = new Date($scope.repairs[i].date);
-            }
             $scope.selected = repairs[0];
             repairFactory.selectedRepair = $scope.selected;
             console.log(repairs);
