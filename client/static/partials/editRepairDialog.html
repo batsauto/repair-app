@@ -88,9 +88,9 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr ng-repeat="part in selected.partsPerRepair">
-                            <td>{{selected.partsPerRepair.quantity}}</td>
-                            <td>{{selected.partsPerRepair.part}}</td>
+                        <tr ng-repeat="partPerRepair in selected.partsPerRepair">
+                            <td>{{partsPerRepair.quantity}}</td>
+                            <td>{{partsPerRepair.part}}</td>
                             <td>
                                 <div md-button class="md-raised" ng-click="removePartsPerRepair()">Delete Part</div>
                             </td>
