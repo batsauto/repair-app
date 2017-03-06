@@ -103,6 +103,13 @@ myAppModule.controller("repairsController", ['$scope', '$mdSidenav', '$mdDialog'
         });
     };
 
+    $scope.sendEmail = function(email){
+        var link = "mailto:"+ email
+                    + "?subject=%20Hello%20" + $scope.selected.fullName + "%20from%20Barrow%27s%20Landscaping";
+        window.location.href = link;
+    };
+
+
     $scope.removePartsPerRepair = function($index) {
       repairFactory.removePartsPerRepair($index);
     };

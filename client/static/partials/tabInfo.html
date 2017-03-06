@@ -9,7 +9,9 @@
             <span class="infoTitle"> Cell Phone:</span>
             <p class="infoContent">{{selected.phoneCell}}</p>
             <span class="infoTitle">Email:</span>
-            <p class="infoContent">{{selected.email}}</p>
+            <a ng-click="sendEmail(selected.email)">
+                <p class="infoContent">{{selected.email}}</p>
+            </a>
         </div>
 
         <div class="md-padding" flex>
