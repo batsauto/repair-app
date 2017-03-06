@@ -1,4 +1,4 @@
-var myAppModule = angular.module("myApp", ["ngRoute", "vsGoogleAutocomplete", "ngMaterial", "angular.filter", "ngAnimate", "ngMdIcons", "ngAvatar", "ngMap"]);
+var myAppModule = angular.module("myApp", ["ngRoute", "vsGoogleAutocomplete", "ngMaterial", "angular.filter", "ngAnimate", "ngMdIcons", "ngAvatar", "ngMap", 'ngMessages']);
 
 // myAppModule.config(['$qProvider', function ($qProvider) {
 //     $qProvider.errorOnUnhandledRejections(false);

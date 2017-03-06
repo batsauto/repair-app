@@ -9,4 +9,9 @@ myAppModule.controller("addRepairDialogController", [ '$scope', '$mdDialog', 're
         repairFactory.addRepair($scope.newRepair);
         $mdDialog.hide()
     };
+
+    $scope.noSundayPredicate = function(date) {
+        var day = date.getDay();
+        return day !== 0;
+    };
 }]);
