@@ -52,7 +52,9 @@ module.exports = {
             });
     },
     addPart: function (req, res) {
-        Repair.findByIdAndUpdate({_id: req.params.id}, {partsPerRepair: req.body})
+        Repair.findByIdAndUpdate(
+            {_id: req.params.id},
+            { $push: {partsPerRepair: req.body}})
             .then(function () {
                 res.json(true);
             })

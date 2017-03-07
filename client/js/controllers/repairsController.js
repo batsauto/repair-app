@@ -54,7 +54,7 @@ myAppModule.controller("repairsController", ['$scope', '$mdSidenav', '$mdDialog'
         }).then(function () {
             $scope.selectRepair($scope.newRepair);
             $scope.newRepair = {};
-            fetchRepairs();
+            $scope.refreshRepair();
         }, function() {
             console.log("You Cancelled the Dialog");
         });
@@ -72,9 +72,9 @@ myAppModule.controller("repairsController", ['$scope', '$mdSidenav', '$mdDialog'
             clickOutsideToClose: true,
             fullscreen: useFullScreen
         }).then(function () {
-            fetchRepairs();
+            $scope.refreshRepair();
         }, function() {
-            fetchRepairs();
+            $scope.refreshRepair();
             console.log("You Cancelled the Dialog");
         });
     };
@@ -109,6 +109,12 @@ myAppModule.controller("repairsController", ['$scope', '$mdSidenav', '$mdDialog'
         window.location.href = link;
     };
 
+
+    $scope.refreshRepair = function() {
+        repairFactory.getRepairs().then(function (repairs) {
+            $scope.repairs = repairs;
+        });
+    };
 
     $scope.removePartsPerRepair = function($index) {
       repairFactory.removePartsPerRepair($index);
