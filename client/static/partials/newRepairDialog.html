@@ -59,14 +59,20 @@
             <div layout-gt-sm="row">
                 <md-input-container class="md-block" flex-gt-sm>
                     <label>Cell Phone</label>
-                    <input ng-model="newRepair.phoneCell" name="phoneCell" required>
+                    <input type="number" ng-model="newRepair.phoneCell" name="phoneCell" required ng-minlength="10" ng-maxlength="10">
                     <div ng-messages="repairForm.phoneCell.$error">
                         <div ng-message="required">This is required.</div>
+                        <div ng-message="minlength">too short... needs to be 10 digits</div>
+                        <div ng-message="maxlength">too long... needs to be 10 digits</div>
                     </div>
                 </md-input-container>
                 <md-input-container class="md-block" flex-gt-sm>
                     <label>Email</label>
-                    <input ng-model="newRepair.email" name="email">
+                    <input type="email" ng-model="newRepair.email" name="email" required>
+                    <div ng-messages="repairForm.email.$error">
+                        <div ng-message="required">This is required.</div>
+                        <div ng-message="email">This email address is invalid.</div>
+                    </div>
                 </md-input-container>
             </div>
 
