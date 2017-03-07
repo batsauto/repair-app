@@ -77,5 +77,6 @@ node_modules
 # bower components
 bower_components
 
+
 # .idea folder created by webstorm
 .idea
