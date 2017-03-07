@@ -21,5 +21,10 @@ myAppModule.controller("editRepairDialogController", [ '$scope', '$mdDialog', 'r
         console.log(_id);
         repairFactory.removePartsFromRepair(_id);
         $scope.refreshRepairs();
-    }
+    };
+
+    $scope.noSundayPredicate = function(date) {
+        var day = date.getDay();
+        return day !== 0;
+    };
 }]);
