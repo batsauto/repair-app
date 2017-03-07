@@ -1,15 +1,11 @@
 myAppModule.controller("repairsController", ['$scope', '$mdSidenav', '$mdDialog', '$mdMedia', 'repairFactory', 'partFactory', 'NgMap', function($scope, $mdSidenav, $mdDialog, $mdMedia, repairFactory, partFactory, NgMap) {
 
-    // $scope.repairs = [];
     $scope.selected = null;
     $scope.searchCustomer = "";
     $scope.tabIndex = 0;
 
     fetchRepairs();
     fetchParts();
-
-    // $scope.newpartsPerRepair = {};
-
 
     function fetchRepairs() {
         repairFactory.getRepairs().then(function (repairs) {
@@ -52,9 +48,8 @@ myAppModule.controller("repairsController", ['$scope', '$mdSidenav', '$mdDialog'
             clickOutsideToClose: true,
             fullscreen: useFullScreen
         }).then(function () {
-            $scope.selectRepair($scope.newRepair);
             $scope.newRepair = {};
-            $scope.refreshRepair();
+            fetchRepairs();
         }, function() {
             console.log("You Cancelled the Dialog");
         });
@@ -72,9 +67,9 @@ myAppModule.controller("repairsController", ['$scope', '$mdSidenav', '$mdDialog'
             clickOutsideToClose: true,
             fullscreen: useFullScreen
         }).then(function () {
-            $scope.refreshRepair();
+            $scope.refreshRepairs();
         }, function() {
-            $scope.refreshRepair();
+            $scope.refreshRepairs();
             console.log("You Cancelled the Dialog");
         });
     };
@@ -83,7 +78,6 @@ myAppModule.controller("repairsController", ['$scope', '$mdSidenav', '$mdDialog'
         repairFactory.deleteRepair($scope.selected)
         .then(function () {
             fetchRepairs();
-            // $scope.selected = repair[0];
         })
     };
 
@@ -110,14 +104,17 @@ myAppModule.controller("repairsController", ['$scope', '$mdSidenav', '$mdDialog'
     };
 
 
-    $scope.refreshRepair = function() {
+    $scope.refreshRepairs = function() {
+        var SelectedId = $scope.selected._id;
         repairFactory.getRepairs().then(function (repairs) {
             $scope.repairs = repairs;
+            for(var i=0; i<repairs.length; i++) {
+                if (repairs[i]._id == SelectedId) {
+                    $scope.selected = repairs[i];
+                }
+            }
+            repairFactory.selectedRepair = $scope.selected;
         });
-    };
-
-    $scope.removePartsPerRepair = function($index) {
-      repairFactory.removePartsPerRepair($index);
     };
 
     NgMap.getMap().then(function(map) {

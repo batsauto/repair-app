@@ -1,6 +1,11 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
+var partsPerRepairSchema = mongoose.Schema({
+    quantity: Number,
+    part: String
+}, {_id : true });
+
 var RepairSchema = new Schema({
     firstName: {type: String, minlength: 2},
     lastName: {type: String, minlength: 2},
@@ -15,7 +20,7 @@ var RepairSchema = new Schema({
     avatarInitial: {type: String },
     numWorkers: {type: Number },
     numHours: {type: Number },
-    partsPerRepair: {type: Array}
+    partsPerRepair: [partsPerRepairSchema]
 }, {timestamps: true});
 
 mongoose.model('Repair', RepairSchema);

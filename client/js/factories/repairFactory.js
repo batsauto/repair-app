@@ -9,7 +9,7 @@ myAppModule.factory("repairFactory", function($http) {
     factory.deleteRepair = deleteRepair;
     factory.updateRepair = updateRepair;
     factory.addPartsPerRepair = addPartsPerRepair;
-    factory.removePartsPerRepair = removePartsPerRepair;
+    factory.removePartsFromRepair = removePartsFromRepair;
 
     return factory;
 
@@ -49,8 +49,8 @@ myAppModule.factory("repairFactory", function($http) {
         return $http.put('/repairs/partsPerRepair/' + selected._id, newPartsPerRepair).then(handleSuccess, handleError("Error updating parts in repair"))
     }
 
-    function removePartsPerRepair () {
-
+    function removePartsFromRepair (_id) {
+        return $http.delete('/repairs/partsPerRepair/' + _id, _id).then(handleSuccess, handleError("Error deleting parts in repair"))
     }
 
     // factory.getRepairs = function(callback) {

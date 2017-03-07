@@ -64,4 +64,17 @@ module.exports = {
                 res.json(err);
             });
     },
+    deletePart: function (req, res) {
+        Repair.findByIdAndUpdate(
+            {_id: req.params.id},
+            { $pull: { partsPerRepair: req.params.id}})
+            .then(function () {
+                res.json(true);
+            })
+            .catch(function (err) {
+                console.log(err);
+                res.status(500);
+                res.json(err);
+            });
+    }
 };

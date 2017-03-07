@@ -14,6 +14,12 @@ myAppModule.controller("editRepairDialogController", [ '$scope', '$mdDialog', 'r
     $scope.addPartsToRepair = function() {
         repairFactory.addPartsPerRepair($scope.selected, $scope.selected.newPartsPerRepair);
         $scope.selected.newPartsPerRepair = {};
-        $scope.refreshRepair();
+        $scope.refreshRepairs();
     };
+
+    $scope.removePartsPerRepair = function (_id) {
+        console.log(_id);
+        repairFactory.removePartsFromRepair(_id);
+        $scope.refreshRepairs();
+    }
 }]);
