@@ -12,10 +12,14 @@ often times i deactivate my google api key so that there isnt any unwanted use o
             or
   - `yarn install` (if you are using yarn package manager)
 3. open the terminal of your machine and get the repo directory
-4. start your node.js server to serve the files locally
+4. start your MongoDB instance. (if you don't have MongoDB installed locally you can get it [here](https://docs.mongodb.com/manual/administration/install-community/))
+  - `mongod`
+5. start your node.js server to serve the files locally
   - `node server.js`
-5. read the console log on your termial to see which port it is running on (current defualt port 8000)
-6. go to your web browser and view the application locally
+6. read the console log on your termial to see which port it is running on (current defualt port 8000)
+7. go to your web browser and view the application locally
   - `http://www.localhost:8000`
-7. to stop the node server. go into your terminal and run the stop command
-  - `alt+c`
+8. to stop the node.js server. go into your terminal and run the stop command
+  - `ctrl+c`
+9. to stop the mongoDB server. go into your terminal, where the instance is running, and run the stop command
+  - `ctrl+c`

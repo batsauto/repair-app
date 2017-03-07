@@ -55,9 +55,6 @@ Thumbs.db
 # Ignore the build directory
 #/build
 
-# Ignore Sass' cache
-/.sass-cache
-
 # Ignore Map File
 *.map
 
@@ -80,4 +77,6 @@ node_modules
 # bower components
 bower_components
 
+
+# .idea folder created by webstorm
 .idea

@@ -1,4 +1,4 @@
-myAppModule.controller("addRepairDialogController", function($scope, $mdDialog, repairFactory) {
+myAppModule.controller("addRepairDialogController", [ '$scope', '$mdDialog', 'repairFactory', function($scope, $mdDialog, repairFactory) {
     $scope.cancel = function() {
         $mdDialog.cancel();
     };
@@ -7,8 +7,11 @@ myAppModule.controller("addRepairDialogController", function($scope, $mdDialog, 
     };
     $scope.addRepair = function() {
         repairFactory.addRepair($scope.newRepair);
-        // $scope.selectRepair($scope.newRepair);
-        $scope.newRepair = {};
         $mdDialog.hide()
     };
-});
+
+    $scope.noSundayPredicate = function(date) {
+        var day = date.getDay();
+        return day !== 0;
+    };
+}]);

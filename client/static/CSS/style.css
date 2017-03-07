@@ -85,3 +85,7 @@ md-list .md-button.selected {
     height: 200px;
     width: 100%;
 }
+
+.cursorPointer {
+    cursor: pointer;
+}

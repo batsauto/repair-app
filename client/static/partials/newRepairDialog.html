@@ -18,7 +18,10 @@
 
                 <md-input-container class="md-block" flex>
                     <label>Enter date</label>
-                    <md-datepicker ng-model="newRepair.date" md-open-on-focus></md-datepicker>
+                    <md-datepicker ng-model="newRepair.date" name="date" md-date-filter="noSundayPredicate" md-open-on-focus required></md-datepicker>
+                    <div ng-messages="repairForm.date.$error">
+                        <div ng-message="required">This is required.</div>
+                    </div>
                 </md-input-container>
 
                 <md-input-container class="md-block" flex flex-gt-sm="35">
@@ -30,40 +33,61 @@
             <div layout-gt-sm="row">
                 <md-input-container class="md-block" flex-gt-sm>
                     <label>First name</label>
-                    <input ng-model="newRepair.firstName">
+                    <input ng-model="newRepair.firstName" name="firstName" required>
+                    <div ng-messages="repairForm.firstName.$error">
+                        <div ng-message="required">This is required.</div>
+                    </div>
                 </md-input-container>
 
                 <md-input-container class="md-block" flex-gt-sm>
                     <label>Last name</label>
-                    <input ng-model="newRepair.lastName">
+                    <input ng-model="newRepair.lastName" name="lastName" required>
+                    <div ng-messages="repairForm.lastName.$error">
+                        <div ng-message="required">This is required.</div>
+                    </div>
                 </md-input-container>
             </div>
 
             <md-input-container class="md-block">
                 <label>Address</label>
-                <input vs-google-autocomplete="{ types: ['address'] }" placeholder="" ng-model="newRepair.address">
+                <input vs-google-autocomplete="{ types: ['address'] }" placeholder="" ng-model="newRepair.address" name="address" required>
+                <div ng-messages="repairForm.address.$error">
+                    <div ng-message="required">This is required.</div>
+                </div>
             </md-input-container>
 
             <div layout-gt-sm="row">
                 <md-input-container class="md-block" flex-gt-sm>
                     <label>Cell Phone</label>
-                    <input ng-model="newRepair.phoneCell">
+                    <input type="number" ng-model="newRepair.phoneCell" name="phoneCell" required ng-minlength="10" ng-maxlength="10">
+                    <div ng-messages="repairForm.phoneCell.$error">
+                        <div ng-message="required">This is required.</div>
+                        <div ng-message="minlength">too short... needs to be 10 digits</div>
+                        <div ng-message="maxlength">too long... needs to be 10 digits</div>
+                    </div>
                 </md-input-container>
                 <md-input-container class="md-block" flex-gt-sm>
                     <label>Email</label>
-                    <input ng-model="newRepair.email">
+                    <input type="email" ng-model="newRepair.email" name="email" required>
+                    <div ng-messages="repairForm.email.$error">
+                        <div ng-message="required">This is required.</div>
+                        <div ng-message="email">This email address is invalid.</div>
+                    </div>
                 </md-input-container>
             </div>
 
             <md-input-container class="md-block">
                 <label>Customer Description</label>
                 <textarea ng-model="newRepair.description" md-maxlength="400" rows="4"
-                          md-select-on-focus></textarea>
+                          md-select-on-focus name="description" required></textarea>
+                <div ng-messages="repairForm.description.$error">
+                    <div ng-message="required">This is required.</div>
+                </div>
             </md-input-container>
         </form>
     </md-dialog-content>
     <md-dialog-actions layout="row">
         <span flex></span>
-        <md-button class="md-raised" ng-click="addRepair()">Add Repair</md-button>
+        <md-button class="md-raised" ng-disabled="repairForm.$invalid" ng-click="addRepair()">Add Repair</md-button>
     </md-dialog-actions>
 </md-dialog>
