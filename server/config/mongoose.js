@@ -30,12 +30,14 @@ mongoose.connect(dbURI);
  *  When successfully connected
  */
 mongoose.connection.on('connected', function () {
+    //noinspection JSAnnotator
     console.log(`Mongoose default connection open to ${ dbURI }`);
 });
 /*
  *  If the connection throws an error
  */
 mongoose.connection.on('error', function (err) {
+    //noinspection JSAnnotator
     console.error(`Mongoose default connection error: ${ err }`);
 });
 /*

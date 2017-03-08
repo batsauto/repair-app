@@ -15,5 +15,6 @@ require("./server/config/mongoose.js");
 require("./server/config/routes.js")(app);
 
 app.listen( port, function() {
+    //noinspection JSAnnotator
     console.log( `server running on port ${ port }` );
 });

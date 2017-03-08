@@ -23,3 +23,12 @@ often times i deactivate my google api key so that there isnt any unwanted use o
   - `ctrl+c`
 9. to stop the mongoDB server. go into your terminal, where the instance is running, and run the stop command
   - `ctrl+c`
+
+to export MongoDB data use (in the terminal)
+  -`mongoexport --db full_repair_app --collection repairs --out /initialData/repairs.json`
+
+to import mongoDB data use (in the terminal)
+  -`mongoimport --db full_repair_app --collection repairs --file /initialData/repairs.json`
+
+to add parts using httPie use
+  -`http POST :8000/parts name="Part Name Here"`
