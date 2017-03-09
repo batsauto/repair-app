@@ -6,8 +6,12 @@ myAppModule.controller("addRepairDialogController", [ '$scope', '$mdDialog', 're
         $mdDialog.hide();
     };
     $scope.addRepair = function() {
-        repairFactory.addRepair($scope.newRepair);
-        $mdDialog.hide()
+        repairFactory.addRepair($scope.newRepair).then(function(){
+            $mdDialog.hide();
+        },
+        function(){
+            //handle the error
+        });
     };
 
     $scope.noSundayPredicate = function(date) {
