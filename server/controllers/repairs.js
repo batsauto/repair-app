@@ -65,9 +65,9 @@ module.exports = {
             });
     },
     deletePart: function (req, res) {
-        Repair.findByIdAndUpdate(
-            {_id: req.params.id},
-            { $pull: { partsPerRepair: req.params.id}})
+        Repair.findByIdAndRemove(
+            { _id : req.params.id},
+            { $pull: { partsPerRepair : { _id : req.params.id } } } )
             .then(function () {
                 res.json(true);
             })

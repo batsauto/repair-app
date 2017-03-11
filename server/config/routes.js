@@ -12,7 +12,7 @@ module.exports = function (app) {
     app.delete('/repairs/:id', Repair.delete);
     app.put('/repairs/:id', Repair.update);
     app.put('/repairs/partsPerRepair/:id', Repair.addPart);
-    app.delete('/repairs/partsPerRepair/:id', Repair.deletePart);
+    app.put('/repairs/removePartsPerRepair/:id', Repair.deletePart);
     // Parts
     app.get('/parts', Part.index);
     app.post('/parts', Part.create);

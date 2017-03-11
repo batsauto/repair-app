@@ -18,6 +18,7 @@ myAppModule.factory("repairFactory", function($http) {
             function(res) {
                 angular.forEach(res.data, function (repair) {
                     repair.date = new Date(repair.date);
+                    repair.phoneCell = Number(repair.phoneCell);
                 });
                 return res.data;
             }, handleError("Error getting all repairs"));
@@ -49,8 +50,8 @@ myAppModule.factory("repairFactory", function($http) {
         return $http.put('/repairs/partsPerRepair/' + selected._id, newPartsPerRepair).then(handleSuccess, handleError("Error updating parts in repair"))
     }
 
-    function removePartsFromRepair (_id) {
-        return $http.delete('/repairs/partsPerRepair/' + _id, _id).then(handleSuccess, handleError("Error deleting parts in repair"))
+    function removePartsFromRepair (selected, partsPerRepair) {
+        return $http.put('/repairs/removePartsPerRepair/' + partsPerRepair._id).then(handleSuccess, handleError("Error deleting parts in repair"))
     }
 
     // factory.getRepairs = function(callback) {

@@ -108,16 +108,16 @@
                     </div>
                     <div layout-wrap layout-gt-sm="row" ng-repeat="partsPerRepair in selected.partsPerRepair">
                         <md-input-container class="md-block" flex="10">
-                            <label>Qty.</label>
+                            <label>Qty. {{selected._id}}</label>
                             <input ng-model="partsPerRepair.quantity">
                         </md-input-container>
 
                         <md-input-container class="md-block" flex="40">
-                            <label>Repair Parts</label>
+                            <label>Repair Parts {{partsPerRepair._id}}</label>
                             <input ng-model="partsPerRepair.part">
                         </md-input-container>
 
-                        <md-button class="md-icon-button" ng-click="removePartsPerRepair(partsPerRepair._id)">
+                        <md-button class="md-icon-button" ng-click="removePartsPerRepair(partsPerRepair)">
                             <ng-md-icon icon="delete" aria-label="Remove Parts From Repair"></ng-md-icon>
                         </md-button>
                     </div>

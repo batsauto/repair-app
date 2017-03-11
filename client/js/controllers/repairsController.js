@@ -41,7 +41,7 @@ myAppModule.controller("repairsController", ['$scope', '$mdSidenav', '$mdDialog'
     $scope.addRepair = function($event) {
         var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
         $mdDialog.show( {
-            templateUrl: './static/partials/newRepairDialog.html',
+            templateUrl: './static/partials/addRepairDialog.html',
             parent: angular.element(document.body),
             targetEvent: $event,
             controller: "addRepairDialogController",
