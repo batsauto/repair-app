@@ -51,7 +51,7 @@ myAppModule.factory("repairFactory", function($http) {
     }
 
     function removePartsFromRepair (selected, partsPerRepair) {
-        return $http.put('/repairs/removePartsPerRepair/' + partsPerRepair._id).then(handleSuccess, handleError("Error deleting parts in repair"))
+        return $http.put('/repairs/removePartsPerRepair/' + partsPerRepair._id, partsPerRepair).then(handleSuccess, handleError("Error deleting parts in repair"))
     }
 
     // factory.getRepairs = function(callback) {
