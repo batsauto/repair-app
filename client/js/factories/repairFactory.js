@@ -38,17 +38,6 @@ myAppModule.factory("repairFactory", function($http) {
             }, handleError("Error getting all repairs"));
     }
 
-    function removePartsFromRepair (partsPerRepair) {
-        return $http.put('/repairs/removePartsPerRepair/' + partsPerRepair._id, partsPerRepair).then(handleSuccess, handleError("Error deleting parts in repair"))
-    }
-
-    function updateRepair(selected){
-        selected.avatarInitial = selected.firstName.charAt(0).toUpperCase() + selected.lastName.charAt(0).toUpperCase();
-        selected.fullName = selected.firstName + " " + selected.lastName;
-        return $http.put('/repairs/' + selected._id, selected).then(handleSuccess, handleError("Error updating repair"));
-    }
-
-
     function handleSuccess(res) {
         return res.data;
     }
@@ -59,5 +48,14 @@ myAppModule.factory("repairFactory", function($http) {
         };
     }
 
+    function removePartsFromRepair (partsPerRepair) {
+        return $http.put('/repairs/removePartsPerRepair/' + partsPerRepair._id, partsPerRepair).then(handleSuccess, handleError("Error deleting parts in repair"))
+    }
+
+    function updateRepair(selected){
+        selected.avatarInitial = selected.firstName.charAt(0).toUpperCase() + selected.lastName.charAt(0).toUpperCase();
+        selected.fullName = selected.firstName + " " + selected.lastName;
+        return $http.put('/repairs/' + selected._id, selected).then(handleSuccess, handleError("Error updating repair"));
+    }
 
 });
