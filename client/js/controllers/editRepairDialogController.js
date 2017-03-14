@@ -18,8 +18,7 @@ myAppModule.controller("editRepairDialogController", [ '$scope', '$mdDialog', 'r
     };
 
     $scope.removePartsPerRepair = function (partsPerRepair) {
-        console.log($scope.selected, partsPerRepair);
-        repairFactory.removePartsFromRepair($scope.selected, partsPerRepair);
+        repairFactory.removePartsFromRepair(partsPerRepair);
         $scope.refreshRepairs();
     };
 
