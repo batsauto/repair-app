@@ -80,3 +80,6 @@ bower_components
 
 # .idea folder created by webstorm
 .idea
+
+# .pem file for AWS server key
+repair-app.pem
