@@ -19,7 +19,4 @@ myAppModule.factory("partFactory", function($http) {
         };
     }
 
-    return factory;
-
-
 });
