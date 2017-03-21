@@ -101,7 +101,7 @@ myAppModule.controller("repairsController", ['$scope', '$mdSidenav', '$mdDialog'
         repairFactory.getRepairs().then(function (repairs) {
             $scope.repairs = repairs;
             for (var i = 0; i < repairs.length; i++) {
-                if (repairs[i]._id == SelectedId) {
+                if (repairs[i]._id === SelectedId) {
                     $scope.selected = repairs[i];
                 }
             }
