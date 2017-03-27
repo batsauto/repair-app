@@ -3,9 +3,9 @@ var Part = require('../controllers/parts.js');
 
 // ROUTING
 module.exports = function (app) {
-    app.get('/', function (req, res) {
-        res.sendFile(__dirname + '../../client/index.html')
-    });
+    // app.get('/', function (req, res) {
+    //     res.sendFile(__dirname + '../../client/index.html')
+    // });
     // Repairs
     app.get('/repairs', Repair.index);
     app.post('/repairs', Repair.create);

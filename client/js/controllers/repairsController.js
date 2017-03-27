@@ -4,6 +4,7 @@ myAppModule.controller("repairsController", ['$scope', '$mdSidenav', '$mdDialog'
     $scope.deleteRepairDialog = deleteRepairDialog;
     $scope.editRepair = editRepair;
     $scope.refreshRepairs = refreshRepairs;
+    $scope.refreshAddRepairs = refreshAddRepairs;
     $scope.removeRepair = removeRepair;
     $scope.selected = null;
     $scope.selectRepair = selectRepair;
@@ -12,8 +13,9 @@ myAppModule.controller("repairsController", ['$scope', '$mdSidenav', '$mdDialog'
     $scope.tabIndex = 0;
     $scope.toggleSideNav = toggleSideNav;
 
-    fetchRepairs();
     fetchParts();
+    fetchRepairs();
+
     NgMap.getMap().then(function (map) {
     });
 
@@ -28,7 +30,7 @@ myAppModule.controller("repairsController", ['$scope', '$mdSidenav', '$mdDialog'
             fullscreen: useFullScreen
         }).then(function () {
             $scope.newRepair = {};
-            fetchRepairs();
+            refreshAddRepairs();
         }, function () {
             console.log("You Cancelled the Dialog");
         });
@@ -62,10 +64,17 @@ myAppModule.controller("repairsController", ['$scope', '$mdSidenav', '$mdDialog'
             clickOutsideToClose: true,
             fullscreen: useFullScreen
         }).then(function () {
-            $scope.refreshRepairs();
+            refreshRepairs();
         }, function () {
-            $scope.refreshRepairs();
+            refreshRepairs();
             console.log("You Cancelled the Dialog");
+        });
+    }
+
+    function fetchParts() {
+        partFactory.getParts().then(function (parts) {
+            $scope.parts = parts;
+            console.log(parts);
         });
     }
 
@@ -77,13 +86,6 @@ myAppModule.controller("repairsController", ['$scope', '$mdSidenav', '$mdDialog'
             console.log(repairs);
         });
 
-    }
-
-    function fetchParts() {
-        partFactory.getParts().then(function (parts) {
-            $scope.parts = parts;
-            console.log(parts);
-        });
     }
 
     function selectRepair(repair) {
@@ -107,6 +109,14 @@ myAppModule.controller("repairsController", ['$scope', '$mdSidenav', '$mdDialog'
             }
             repairFactory.selectedRepair = $scope.selected;
         });
+    }
+
+    function refreshAddRepairs() {
+        repairFactory.getRepairs().then(function (repairs) {
+            $scope.repairs = repairs;
+            $scope.selected = repairs[repairs.length - 1];
+            repairFactory.selectedRepair = $scope.selected;
+        })
     }
 
     function removeRepair() {
